@@ -31,6 +31,4 @@ public class Receipt {
 		System.out.println("Amount sold: " + amountSold);
 		System.out.println("issued: " + issuedTick + " || requested: " + requestTick);
 	}
-	
-	
 }

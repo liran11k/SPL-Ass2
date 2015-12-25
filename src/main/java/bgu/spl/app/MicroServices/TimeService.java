@@ -1,27 +1,49 @@
 package bgu.spl.app.MicroServices;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import bgu.spl.app.passiveObjects.TickBroadcast;
 import bgu.spl.mics.MicroService;
 
 public class TimeService extends MicroService{
-	//OurFields
 	private int speed;
 	private int duration;
-	private TickBroadcast currentTick;
+	private Timer time;
+	private int tick;
 	
-	
-	public TimeService(int speed, int duration){
-		super("timer");
-		this.speed=speed;
-		this.duration=duration;
-		currentTick = new TickBroadcast(1);
-		
+	public TimeService(int speed, int duration) {
+		super("Timer");
+		this.setDuration(duration);
+		this.setSpeed(speed);
 	}
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
-		
+		time.schedule(new TimerTask(){
+			@Override
+			public void run() {
+				sendBroadcast(new TickBroadcast(tick));	
+			}	
+		}, 0, speed);	
 	}
 
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+
+	
 }

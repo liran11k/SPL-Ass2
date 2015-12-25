@@ -13,10 +13,10 @@ public class PurchaseSchedule {
 		shoeType=other.getType();
 		tick=other.getTick();
 	}
-	private int getTick() {
+	public int getTick() {
 		return tick;
 	}
-	private String getType() {
+	public String getType() {
 		return shoeType;
 	}
 }

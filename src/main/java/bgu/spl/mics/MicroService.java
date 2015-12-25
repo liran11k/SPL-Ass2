@@ -17,8 +17,7 @@ import bgu.spl.mics.impl.MessageBusImpl;
  * <p>
  * Derived classes of MicroService should never directly touch the message-bus.
  * Instead, they have a set of internal protected wrapping methods (e.g.,
- * {@link #sendBroadcast(bgu.spl.mics.Broadcast)}, {@link
-#sendBroadcast(bgu.spl.mics.Broadcast)},
+ * {@link #sendBroadcast(bgu.spl.mics.Broadcast)}, {@link #sendBroadcast(bgu.spl.mics.Broadcast)},
  * etc.) they can use . When subscribing to message-types,
  * the derived class also supplies a {@link Callback} that should be called when
  * a message of the subscribed type was taken from the micro-service
@@ -91,8 +90,10 @@ public abstract class MicroService implements Runnable {
      *                 queue.
      */
     protected final <B extends Broadcast> void subscribeBroadcast(Class<B> type, Callback<B> callback) {
-        callbackMap.put(type, callback);
-        MessageBusImpl.getInstance().subscribeBroadcast(type, this);
+    	if(callbackMap.containsKey(type)){
+    		callbackMap.put(type, callback);
+    		MessageBusImpl.getInstance().subscribeBroadcast(type, this);
+    	}
     }
 
     /**
@@ -112,8 +113,8 @@ public abstract class MicroService implements Runnable {
      *         {@code r.getClass()} and false otherwise.
      */
     protected final <T> boolean sendRequest(Request<T> r, Callback<T> onComplete) {
-        CompleteCallbackMap.put(r, onComplete);
-        return MessageBusImpl.getInstance().sendRequest(r,this);
+    	CompleteCallbackMap.put(r, onComplete);
+    	return MessageBusImpl.getInstance().sendRequest(r,this);
     }
 
     /**
@@ -167,28 +168,30 @@ public abstract class MicroService implements Runnable {
     @Override
     public final void run() {
         MessageBusImpl.getInstance().register(this);
-        initialize();
+          initialize();
         while (!terminated) {
-        	try {
-        		Message message = MessageBusImpl.getInstance().awaitMessage(this);
-        		if(message!=null){
-        		//Invoke the corresponding callback
-        			if(Broadcast.class.isAssignableFrom(message.getClass()) || Request.class.isAssignableFrom(message.getClass())){
-        				Callback<Message> c = (Callback<Message>)
-        				callbackMap.get(message.getClass());
-        				c.call(message);
-                    }
-                    else if(RequestCompleted.class.isAssignableFrom(message.getClass())){
-                    	Callback<Object> c1 = (Callback<Object>)CompleteCallbackMap.get(((RequestCompleted)message).getCompletedRequest());
-                                          c1.call(((RequestCompleted)message).getResult());
-                    }
-        		}
-            }
+              try {
+            	  Message message = MessageBusImpl.getInstance().awaitMessage(this);
+            	  if(message!=null){
+            		 // if(callbackMap.get(message.getClass()) != null){ //returns null only if request not found
+            			  //Invoke the corresponding callback
+	  
+            			  if(Broadcast.class.isAssignableFrom(message.getClass()) || Request.class.isAssignableFrom(message.getClass())){
+            				  Callback<Message> c = (Callback<Message>) callbackMap.get(message.getClass());
+            				  c.call(message);
+            			  }
+            			  else if(RequestCompleted.class.isAssignableFrom(message.getClass())){
+            				  Callback<Object> cComplete = (Callback<Object>) CompleteCallbackMap.get(((RequestCompleted)message).getCompletedRequest());		  	
+            				  cComplete.call(((RequestCompleted)message).getResult());
+            			  }  
+            		 // }
+            	  }
+              }
             catch (InterruptedException e) {
-                e.printStackTrace();
+            	e.printStackTrace();
             }
         }
-        MessageBusImpl.getInstance().unregister(this);
+        MessageBusImpl.getInstance().unregister(this);    
     }
 
 }
