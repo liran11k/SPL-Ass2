@@ -16,16 +16,21 @@ public class TimeService extends MicroService{
 		super("Timer");
 		this.setDuration(duration);
 		this.setSpeed(speed);
+		time = new Timer();
 	}
 
 	@Override
 	protected void initialize() {
-		time.schedule(new TimerTask(){
-			@Override
-			public void run() {
-				sendBroadcast(new TickBroadcast(tick));	
-			}	
-		}, 0, speed);	
+		time.schedule(
+				new TimerTask(){
+					@Override
+					public void run() {
+						sendBroadcast(new TickBroadcast(tick));
+						duration--;
+						if(duration == 0)
+							terminate();
+					}	
+		}, speed, speed);	
 	}
 
 	public int getDuration() {
@@ -43,6 +48,9 @@ public class TimeService extends MicroService{
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+
+
+
 
 
 	

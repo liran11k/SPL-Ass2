@@ -11,4 +11,11 @@ public class DiscountSchedule {
 		this.amount=amount;
 	}
 	
+	public String getType(){
+		return shoeType;
+	}
+	
+	public int getTick(){
+		return tick;
+	}
 }
