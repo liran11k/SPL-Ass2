@@ -78,7 +78,7 @@ public class MessageBusImpl implements MessageBus{
 	}
 
 	@Override
-	public void sendBroadcast(Broadcast b) {
+	public synchronized void sendBroadcast(Broadcast b) {
 		Iterator<MicroService> iter = broadcast_subscribers.iterator();
 		while(iter.hasNext()){
 			getInstance().micro_services.get(iter).add((Message)b); // get the micro service's queue
@@ -93,6 +93,8 @@ public class MessageBusImpl implements MessageBus{
 	 */
 	public synchronized boolean sendRequest(Request<?> r, MicroService requester) {
 		if(!request_subscribers.isEmpty()){
+			if(index >= request_subscribers.size())
+				index = 0;
 			getInstance().micro_services.get(request_subscribers.get(index)).add(r);
 			notifyAll();
 			Tuple<Request<?>, MicroService> reqNrequster = new Tuple<Request<?>, MicroService>(r,requester);

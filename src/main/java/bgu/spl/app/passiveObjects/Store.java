@@ -77,7 +77,8 @@ public class Store{
 	public void remove(String shoeType){
 		ShoeStorageInfo tmp = myStorage.get(shoeType);
 		tmp.setAmount(tmp.getAmountOnStorage()-1);
-		tmp.setDiscountAmount(tmp.getDiscountedAmount()-1);
+		if(tmp.getDiscountedAmount()>0)
+			tmp.setDiscountAmount(tmp.getDiscountedAmount()-1);			
 	}
 	
 	public void addDiscount(String shoeType, int amount){
