@@ -176,11 +176,11 @@ public abstract class MicroService implements Runnable {
             		 // if(callbackMap.get(message.getClass()) != null){ //returns null only if request not found
             			  //Invoke the corresponding callback
 	  
-            			  if(Broadcast.class.isAssignableFrom(message.getClass()) || Request.class.isAssignableFrom(message.getClass())){
+            			  if((callbackMap.get(message.getClass()) != null) && (Broadcast.class.isAssignableFrom(message.getClass()) || Request.class.isAssignableFrom(message.getClass()))){
             				  Callback<Message> c = (Callback<Message>) callbackMap.get(message.getClass());
             				  c.call(message);
             			  }
-            			  else if(RequestCompleted.class.isAssignableFrom(message.getClass())){
+            			  else if( callbackMap.get(message.getClass()) != null && RequestCompleted.class.isAssignableFrom(message.getClass())){
             				  Callback<Object> cComplete = (Callback<Object>) CompleteCallbackMap.get(((RequestCompleted)message).getCompletedRequest());		  	
             				  cComplete.call(((RequestCompleted)message).getResult());
             			  }  

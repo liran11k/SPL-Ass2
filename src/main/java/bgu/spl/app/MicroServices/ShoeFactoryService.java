@@ -25,11 +25,12 @@ public class ShoeFactoryService extends MicroService{
 	protected void initialize() {
 		
 		/**
-		 * For each Tick broadcast --> manufacture 1 shoe:
-		 * else:
-		 * 1. create receipt
-		 * 2. send complete to manager
-		 * 3. remove from my products
+		 * For each Tick broadcast --> if there are orders in our queue
+		 * --> Manufacture 1 shoe:
+		 * if completed manufacturing an order:
+		 * -->	1. create receipt
+		 * 		2. send complete to manager
+		 * 		3. remove from my products
 		 */
 		subscribeBroadcast(TickBroadcast.class, v-> {
 			tick=v.getCurrent();
@@ -39,35 +40,21 @@ public class ShoeFactoryService extends MicroService{
 					orderRequest.setTmpAmount(orderRequest.getTmpAmount()-1);
 				}
 				else{
-					Store.getInstance().add(orderRequest.getShoeType(), orderRequest.getAmount());
 					Receipt receipt = new Receipt(getName(), "Store", orderRequest.getShoeType(), false, tick, orderRequest.getTick(), orderRequest.getAmount());
-					Store.getInstance().file(receipt);
 					complete(orderRequest, receipt);
 					orderRequests.removeFirst();
 				}
 			}
 		});
 		
+		/**
+		 * For each request arrived
+		 * --> add to requests' list
+		 */
 		subscribeRequest(ManufacturingOrderRequest.class, v-> {
 			orderRequests.addLast(v);
 		});
 		
-		/*
-		subscribeBroadcast(TickBroadcast.class, v-> {
-			tick=v.getCurrent();
-		});
-		
-		subscribeRequest(ManufacturingOrderRequest.class, v-> {
-			int toAdd = v.getAmount();
-			int requestedTick = tick;
-			while(toAdd > 0){
-				if( (requestedTick +1 <= tick) && (requestedTick >= ) ){
-					Store.getInstance().add(v.getShoeType(), 1);
-					toAdd--;
-				}
-			}
-		});
-		*/
 	}
 
 }

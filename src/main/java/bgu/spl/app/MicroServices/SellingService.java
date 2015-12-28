@@ -8,6 +8,7 @@ import bgu.spl.app.passiveObjects.ShoeStorageInfo;
 import bgu.spl.app.passiveObjects.Store;
 import bgu.spl.mics.MicroService;
 import bgu.spl.mics.Request;
+import bgu.spl.mics.RequestCompleted;
 
 public class SellingService extends MicroService{
 	private int tick;
@@ -24,27 +25,41 @@ public class SellingService extends MicroService{
 		});
 		
 	}
+	@SuppressWarnings("unchecked")
 	private void Buy(Request req){
 		synchronized (Store.getInstance()) {
-			PurchaseOrderRequest request = (PurchaseOrderRequest) req;
-			ShoeStorageInfo shoe =  Store.getInstance().getShoe(((PurchaseOrderRequest) req).getShoeType());
-			// while have not completed all customer's request
-			BuyResult status = Store.getInstance().take(request.getShoeType(),request.onlyOnDiscount());
-			if(status == BuyResult.DISCOUNTED_PRICE){
-				Store.getInstance().remove(shoe.getType());
-				Store.getInstance().file(new Receipt(getName(), request.getCustomer() , shoe.getType(), status.compareTo(BuyResult.DISCOUNTED_PRICE)==0,tick, request.getTick(), 1));
-				//TODO: complete with receipt
+			
+			PurchaseOrderRequest purchaseRequest = (PurchaseOrderRequest) req;
+			int amountOn = Store.getInstance().getShoe(purchaseRequest.getShoeType()).getAmountOnStorage();
+			ShoeStorageInfo shoe =  Store.getInstance().getShoe(purchaseRequest.getShoeType());
+			Receipt receipt;
+			BuyResult requestStatus = Store.getInstance().take(purchaseRequest.getShoeType(),purchaseRequest.onlyOnDiscount());
+
+			if(requestStatus == BuyResult.DISCOUNTED_PRICE){
+				receipt = new Receipt(getName(), purchaseRequest.getCustomer() , shoe.getType(), true, tick, purchaseRequest.getTick(), 1);
+				Store.getInstance().getShoe(purchaseRequest.getShoeType()).setAmount(amountOn-1);
+				Store.getInstance().file(receipt);
+				complete(purchaseRequest,receipt);
 			}
-			else if(status == BuyResult.NOT_IN_STOCK){
-				//this client receives his order from the callback
-				//RestockRequest restock = new RestockRequest(shoe.getType(), request.getAmount());
-//				sendRequest(restock, v ->{});
-				//TODO: fix scenario when sent stock request
-				//		now manager tries to add items
-				//		but this function is locked on the store.
+			else if(requestStatus == BuyResult.NOT_IN_STOCK){
+				RestockRequest restockRequest = new RestockRequest(shoe.getType(),1);
+				boolean requestReceived = sendRequest(restockRequest, v ->{
+					if((boolean) ((RequestCompleted) v).getResult()){
+						Receipt delayedReceipt = new Receipt(getName(), purchaseRequest.getCustomer(), shoe.getType(), false, tick, purchaseRequest.getTick(), 1);
+						complete(purchaseRequest,delayedReceipt);
+					}
+				});
+				if(!requestReceived)
+					complete(purchaseRequest,null);
 			}
-			else if(status == BuyResult.REGULAR_PRICE){
-				
+			else if(requestStatus == BuyResult.REGULAR_PRICE){
+				receipt = new Receipt(getName(), purchaseRequest.getCustomer() , shoe.getType(), false, tick, purchaseRequest.getTick(), 1);
+				Store.getInstance().getShoe(purchaseRequest.getShoeType()).setAmount(amountOn-1);
+				Store.getInstance().file(receipt);
+				complete(purchaseRequest,receipt);
+			}
+			else if(requestStatus == BuyResult.NOT_ON_DISCOUNT){
+				complete(purchaseRequest,null);
 			}
 			
 		}			
