@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 import bgu.spl.app.passiveObjects.DiscountSchedule;
 import bgu.spl.app.passiveObjects.DiscountsComparator;
@@ -25,14 +26,16 @@ public class ManagementService extends MicroService {
 	private int tick;
 	private Map <String,Integer> myOrders;
 	private Map <String, LinkedList<RestockRequest>> _myOrders;
+	private CountDownLatch _countDownLatch;
 	
-	public ManagementService(String name, List<DiscountSchedule> discounts) {
+	public ManagementService(String name, List<DiscountSchedule> discounts, CountDownLatch countDownLatch) {
 		super(name);
 		myDiscounts = new LinkedList<DiscountSchedule>();
 		myOrders = new HashMap<String, Integer>();
 		_myOrders = new HashMap<String, LinkedList<RestockRequest>>();
 		copyAndSort(discounts);
 		tick=0;
+		_countDownLatch = countDownLatch;
 	}
 	
 	private void copyAndSort(List<DiscountSchedule> toCopy){
@@ -101,6 +104,8 @@ public class ManagementService extends MicroService {
 				}
 			}
 		});
+		
+		_countDownLatch.countDown();
 	}
 	
 	//TODO: delete this checking method

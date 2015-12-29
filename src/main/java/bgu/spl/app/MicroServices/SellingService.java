@@ -1,5 +1,7 @@
 package bgu.spl.app.MicroServices;
 
+import java.util.concurrent.CountDownLatch;
+
 import bgu.spl.app.passiveObjects.BuyResult;
 import bgu.spl.app.passiveObjects.PurchaseOrderRequest;
 import bgu.spl.app.passiveObjects.Receipt;
@@ -12,17 +14,22 @@ import bgu.spl.mics.RequestCompleted;
 
 public class SellingService extends MicroService{
 	private int tick;
+	private CountDownLatch _countDownLatch;
 	
-	public SellingService(String name) {
+	public SellingService(String name, CountDownLatch countDownLatch) {
 		super(name);
 		tick=0;
+		_countDownLatch = countDownLatch;
 	}
 
 	@Override
 	protected void initialize() {
+		
 		subscribeRequest(PurchaseOrderRequest.class, req -> {
 			Buy(req);
 		});
+		
+		_countDownLatch.countDown();
 		
 	}
 	@SuppressWarnings("unchecked")

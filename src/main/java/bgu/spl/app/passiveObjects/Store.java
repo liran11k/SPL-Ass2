@@ -8,7 +8,6 @@ import java.util.Map;
 import bgu.spl.mics.MicroService;
 import bgu.spl.mics.Request;
 import bgu.spl.mics.impl.MessageBusImpl;
-import bgu.spl.mics.impl.Tuple;
 
 public class Store{
 	private MessageBusImpl instance;

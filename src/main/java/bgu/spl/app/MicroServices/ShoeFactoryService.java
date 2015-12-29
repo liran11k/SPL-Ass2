@@ -2,6 +2,7 @@ package bgu.spl.app.MicroServices;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.concurrent.CountDownLatch;
 
 import bgu.spl.app.passiveObjects.ManufacturingOrderRequest;
 import bgu.spl.app.passiveObjects.Receipt;
@@ -13,12 +14,14 @@ public class ShoeFactoryService extends MicroService{
 
 	private int tick;
 	// list to keep track of products' manufacturing
-	private LinkedList<ManufacturingOrderRequest> orderRequests; 
+	private LinkedList<ManufacturingOrderRequest> orderRequests;
+	private CountDownLatch _countDownLatch;
 	
-	public ShoeFactoryService(String name) {
+	public ShoeFactoryService(String name, CountDownLatch countDownLatch) {
 		super(name);
 		tick=0;
 		orderRequests = new LinkedList<ManufacturingOrderRequest>();
+		_countDownLatch = countDownLatch;
 	}
 
 	@Override
@@ -55,6 +58,7 @@ public class ShoeFactoryService extends MicroService{
 			orderRequests.addLast(v);
 		});
 		
+		_countDownLatch.countDown();
 	}
 
 }

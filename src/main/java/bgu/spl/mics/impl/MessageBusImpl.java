@@ -8,7 +8,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import bgu.spl.mics.Broadcast;
 import bgu.spl.mics.Message;
@@ -18,130 +20,162 @@ import bgu.spl.mics.Request;
 import bgu.spl.mics.RequestCompleted;
 
 public class MessageBusImpl implements MessageBus{
-	
-	//Lists which holds pointers to queues who's services subscribed to this type of message.  
-	private List<MicroService> request_subscribers; 
-	private List<MicroService> broadcast_subscribers;
-	//Iterator to implement round robin
-	private int index;
-	//private Iterator<ArrayList> RRiterator;
-	//Map which holds all micro services and their messages queue.
-	private Map<MicroService,ArrayList> micro_services;
-	//Auxiliary map to get request & requester more efficiently
-	private Map<Request<?>, Tuple<Request<?>, MicroService>> point_map_requests;
-	
-	/**
-	 * As taught in class, we need 3 methods 
-	 * in order to create safe singleton implementation.
-	 * 1. Private Holder to create the instance from inside the class (by calling the constructor)
-	 * 2. Private Constructor to initialize the fields.
-	 * 3. Static instance getter to create the instance from outside the class. 
-	 * @author Liran
-	 *
-	 */
-	private static class MessageBusImplHolder{
-		private static MessageBusImpl instance = new MessageBusImpl();
-	}
-	
-	private MessageBusImpl(){
-		request_subscribers = new ArrayList<MicroService>();
-		broadcast_subscribers = new ArrayList<MicroService>();
-		micro_services = new HashMap<MicroService,ArrayList>();
-		point_map_requests = new HashMap<Request<?>, Tuple<Request<?>, MicroService>>();
-	}
-	
-	public static MessageBusImpl getInstance(){
-		return MessageBusImplHolder.instance;
-	}
-	
-	@Override
-	public synchronized void subscribeRequest(Class<? extends Request> type, MicroService m) {
-		request_subscribers.add(m);
-	}
 
-	/**
-	 * Connect micro service 'm' queue to the subscribed message type list
-	 */
-	public void subscribeBroadcast(Class<? extends Broadcast> type, MicroService m) {
-		broadcast_subscribers.add(m);
-	}
-
-	/**
-	 * Get the tuple of request and requester in order to notify the requester
-	 * that the request is completed by sending MessageComplete to it's queue.
-	 */
-	public synchronized <T> void complete(Request<T> r, T result) {	
-		Tuple<Request<?>, MicroService> reqNrequester = point_map_requests.get(r);
-		RequestCompleted<T> completed = new RequestCompleted<>(r, result);
-		micro_services.get(reqNrequester.getY()).add(completed);
-		notifyAll();
-	}
-
-	@Override
-	public synchronized void sendBroadcast(Broadcast b) {
-		Iterator<MicroService> iter = broadcast_subscribers.iterator();
-		while(iter.hasNext()){
-			getInstance().micro_services.get(iter).add((Message)b); // get the micro service's queue
-			iter.next();
-		}
-		notifyAll();
-	}
-
-	/**
-	 * Adding tuple of request & requester in order to operate m's (the requester) methods.
-	 * Adding pointer to map in order to reach the tuple more efficiently
-	 */
-	public synchronized boolean sendRequest(Request<?> r, MicroService requester) {
-		if(!request_subscribers.isEmpty()){
-			if(index >= request_subscribers.size())
-				index = 0;
-			getInstance().micro_services.get(request_subscribers.get(index)).add(r);
-			notifyAll();
-			Tuple<Request<?>, MicroService> reqNrequster = new Tuple<Request<?>, MicroService>(r,requester);
-			point_map_requests.put(r,reqNrequster);
-			if(index<request_subscribers.size()-1)
-				index++;
-			else
-				index=0;
-			return true;
-		}
-		return false;
-	}
+	private Map<MicroService,ArrayList> _micro_services; //MicroService & Queue
+	private Map<Class <? extends Request>,ArrayList> _request_subscribers_lists; //Request and it's subscribers
+	private Map<Class <? extends Broadcast>,ArrayList> _broadcast_subscribers_lists; //Broadcast and it's subscribers
+	private Map<MicroService, ArrayList> _micro_service_request_types;
+	private Map<MicroService, ArrayList> _micro_service_broadcast_types;
 	
-	@Override
-	public void register(MicroService m) {
-		micro_services.put(m, new ArrayList());
-	}
+    //Auxiliary map to get request & requester more efficiently
+    private Map<Request<?>, MicroService> _request_and_requester;
 
-	@Override
-	public void unregister(MicroService m) {
-		unsubscribe(m, request_subscribers);
-		unsubscribe(m, broadcast_subscribers);
-		micro_services.remove(m);
-	}
+    /**
+     * As taught in class, we need 3 methods
+     * in order to create safe singleton implementation.
+     * 1. Private Holder to create the instance from inside the class (by calling the constructor)
+     * 2. Private Constructor to initialize the fields.
+     * 3. Static instance getter to create the instance from outside the class.
+     * @author Liran
+     *
+     */
+    private static class MessageBusImplHolder{
+        private static MessageBusImpl instance = new MessageBusImpl();
+    }
 
-	@Override
-	public synchronized Message awaitMessage(MicroService m) throws InterruptedException {
-		while((micro_services.get(m).size()==0))
-			wait();
-		Message message = (Message) micro_services.get(m).get(0);
-		micro_services.get(m).remove(0);
-		return message; 
-	}
-	
-	/**
-	 * Auxiliary method:
-	 * Unsubscribe m's queue from the message list given
-	 * @param m microservice's queue to remove
-	 * @param toRemoveFrom Message list to remove the queue from
-	 */
-	public synchronized void unsubscribe(MicroService m, List toRemoveFrom){
-		Iterator iter = toRemoveFrom.iterator(); 
-		while(iter.hasNext()){
-			if(iter.equals(micro_services.get(m)))
-					toRemoveFrom.remove(iter);
-			iter.next();
-		}
-	}
+    private MessageBusImpl(){
+    	_micro_services = new HashMap<>();
+    	_request_subscribers_lists = new HashMap<>();
+    	_broadcast_subscribers_lists = new HashMap<>();
+    	_micro_service_request_types = new HashMap<>();
+    	_micro_service_broadcast_types = new HashMap<>();
+    	_request_and_requester = new HashMap<>();
+    }
+
+    public static MessageBusImpl getInstance(){
+        return MessageBusImplHolder.instance;
+    }
+
+    @Override
+    public void subscribeRequest(Class<? extends Request> type, MicroService m) {
+		if(_request_subscribers_lists.containsKey(type))
+				_request_subscribers_lists.get(type).add(m);
+        
+        else{
+        	_request_subscribers_lists.put(type, new ArrayList<>());
+        	_request_subscribers_lists.get(type).add(m);
+        }
+		if(!_micro_service_request_types.get(m).contains(type))
+			_micro_service_request_types.get(m).add(type);
+    }
+
+    /**
+     * Connect micro service 'm' queue to the subscribed message type list
+     */
+    public void subscribeBroadcast(Class<? extends Broadcast> type, MicroService m) {
+    	if(_broadcast_subscribers_lists.containsKey(type))
+				_broadcast_subscribers_lists.get(type).add(m);
+        else{
+        	_broadcast_subscribers_lists.put(type, new ArrayList<>());
+        	_broadcast_subscribers_lists.get(type).add(m);
+        }
+		if(!_micro_service_broadcast_types.get(m).contains(type))
+			_micro_service_broadcast_types.get(m).add(type);
+    }
+
+    /**
+     * Get the tuple of request and requester in order to notify the requester
+     * that the request is completed by sending MessageComplete to it's queue.
+     */
+    public synchronized <T> void complete(Request<T> r, T result) {
+    	RequestCompleted<T> completed = new RequestCompleted<>(r, result);
+    	_micro_services.get(_request_and_requester.get(r)).add(completed);
+		_request_and_requester.remove(r);
+		notify();
+    }
+
+    @Override
+    public synchronized void sendBroadcast(Broadcast b) {
+    	if(_broadcast_subscribers_lists.containsKey(b.getClass())){
+    		Iterator<MicroService> iterator = _broadcast_subscribers_lists.get(b.getClass()).iterator();
+    		while(iterator.hasNext()){
+				_micro_services.get(iterator).add((Message)b);
+    			iterator.next();
+    		}
+    	}
+    	notifyAll();
+    }
+
+    /**
+     * Adding tuple of request & requester in order to operate m's (the requester) methods.
+     * Adding pointer to map in order to reach the tuple more efficiently
+     */
+    public synchronized boolean sendRequest(Request<?> r, MicroService requester) {
+        if(_request_subscribers_lists.containsKey(r.getClass())){
+        	ArrayList <MicroService> subscribers = _request_subscribers_lists.get(r.getClass());
+        	MicroService tmpMicroService = null;
+        	if(!subscribers.isEmpty()){
+            	tmpMicroService = subscribers.remove(0);
+   				_micro_services.get(tmpMicroService).add((Message)r);
+    			subscribers.add(tmpMicroService);
+            	_request_and_requester.put(r, requester);
+            	notifyAll();
+            	return true;
+        	}
+        	return false;
+        }
+        else
+        	return false;
+    }
+
+    @Override
+    public void register(MicroService m) {
+        _micro_services.put(m, new ArrayList<>());
+        _micro_service_request_types.put(m, new ArrayList<>());
+        _micro_service_broadcast_types.put(m, new ArrayList<>());
+    }
+
+    @Override
+    public synchronized void unregister(MicroService m) {
+        unsubscribe(m, _request_subscribers_lists);
+        _micro_services.remove(m);
+    }
+
+    @Override
+    public synchronized Message awaitMessage(MicroService m) throws InterruptedException {
+    	Message message = null;
+    	while( _micro_services.get(m).isEmpty())
+    		wait();
+		message = (Message) _micro_services.get(m).get(0);
+		_micro_services.get(m).remove(0);
+        return message;
+    }
+
+    /**
+     * Auxiliary method:
+     * Unsubscribe m's queue from the message list given
+     * @param m microservice's queue to remove
+     * @param toRemoveFrom Message list to remove the queue from
+     */
+    public void unsubscribe(MicroService m, Map toRemoveFrom){
+    	ArrayList list = _micro_service_request_types.get(m);
+    	while(!list.isEmpty())
+    	{
+    		Class<? extends Request> type;
+			type = (Class<? extends Request>) list.get(0);
+			list.remove(0);
+			_request_subscribers_lists.get(type).remove(m);
+    	}
+    	_micro_service_request_types.remove(m);
+    	list = _micro_service_broadcast_types.get(m);
+    	while(!list.isEmpty())
+    	{
+    		Class<? extends Broadcast> type;
+			type = (Class<? extends Broadcast>) list.get(0);
+			list.remove(0);
+			_broadcast_subscribers_lists.get(type).remove(m);
+    	}
+    	_micro_service_broadcast_types.remove(m);
+    }
 
 }

@@ -3,10 +3,15 @@ package bgu.spl.app.MicroServices;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,7 +37,10 @@ public class ShoeStoreRunner {
 	private static int _numOfFactories;
 	private static int _numOfClients;
 	private static int _numOfServices;
-	private static CountDownLatch _countDownLatch;
+	private static int _speed;
+	private static int _duration;
+	private static CountDownLatch _startLatch;
+	private static CountDownLatch _finishLatch;
 	public static void main(String[] args) {
 		
 		/**
@@ -42,9 +50,32 @@ public class ShoeStoreRunner {
 		 * 4. Terminate gracefully all micro services
 		 * 5. Print all store's receipts 
 		 */
+		
 		Json();
 		
-		_countDownLatch = new CountDownLatch(_numOfServices);
+		_timer = new TimeService(_speed, _duration, _startLatch);
+		ExecutorService executor = Executors.newFixedThreadPool(_numOfServices);
+		//TODO: check with variety of threads
+		
+		executor.execute(_timer);
+		executor.execute(_manager);
+		System.out.println(_startLatch.getCount());
+		for(int i=0; i<_numOfFactories; i++)
+			executor.execute(_factories[i]);
+		for(int i=0; i<_numOfSellers; i++)
+			executor.execute(_sellers[i]);
+		for(int i=0; i<_numOfClients; i++)
+			executor.execute(_clients[i]);
+		
+		executor.shutdown();
+		
+		try {
+			executor.awaitTermination(5, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
 		//Test Json load:
 		/*
@@ -120,9 +151,9 @@ public class ShoeStoreRunner {
 			
 			//time:
 			JSONObject time = (JSONObject) services.get("time");
-			int speed = (int)(long) time.get("speed");
-			int duration = (int)(long) time.get("duration");
-			_timer = new TimeService(speed, duration);
+			_speed = (int)(long) time.get("speed");
+			_duration = (int)(long) time.get("duration");
+			
 			
 			//manager:
 			JSONObject manager = (JSONObject) services.get("manager");
@@ -136,24 +167,18 @@ public class ShoeStoreRunner {
 				DiscountSchedule tmp = new DiscountSchedule(shoeType, tick, amount);
 				discounts.add(tmp);
 			}
-			_manager = new ManagementService("manager", discounts);
+
 			
-			// Factories:
-			int _numOfFactories = (int)(long)services.get("factories");
-			_factories = new ShoeFactoryService[_numOfFactories];
-			for(int i=0; i<_numOfFactories; i++){
-				_factories[i] = new ShoeFactoryService("factory "+(i+1));
-			}
-			
-			// Sellers:
-			int _numOfSellers = (int)(long)services.get("sellers");
-			_sellers = new SellingService[_numOfSellers];
-			for(int i=0; i<_numOfSellers; i++){
-				_sellers[i] = new SellingService("seller "+(i+1));
-			}
-			
+			_numOfFactories = (int)(long)services.get("factories");
+			_numOfSellers = (int)(long)services.get("sellers");
+
 			//customers: 
 			JSONArray customers = (JSONArray) services.get("customers");
+			_numOfClients = customers.size();
+			
+			_numOfServices = _numOfFactories + _numOfSellers + _numOfClients + 1 /*for manager*/;
+			_startLatch = new CountDownLatch(_numOfServices);
+			
 			_clients = new WebsiteClientService[customers.size()];
 			for(int i=0; i<customers.size(); i++){
 				JSONObject customer = (JSONObject) customers.get(i);
@@ -173,10 +198,28 @@ public class ShoeStoreRunner {
 				}
 				// create WebsiteClientService for each customer
 				// and create a database of clients
-				WebsiteClientService client = new WebsiteClientService(name, purchasesSchedule, wishList);
+				WebsiteClientService client = new WebsiteClientService(name, purchasesSchedule, wishList, _startLatch);
 				_clients[i]= client;
 			}
-			_numOfServices = _numOfFactories +_numOfFactories + _numOfSellers + _numOfClients + 1 /*manager*/;	
+			
+			
+			// Manager:
+			_manager = new ManagementService("manager", discounts, _startLatch);
+			
+			
+			// Factories:
+			_factories = new ShoeFactoryService[_numOfFactories];
+			for(int i=0; i<_numOfFactories; i++){
+				_factories[i] = new ShoeFactoryService("factory "+(i+1), _startLatch);
+			}
+			
+			// Sellers:
+			_sellers = new SellingService[_numOfSellers];
+			for(int i=0; i<_numOfSellers; i++){
+				_sellers[i] = new SellingService("seller "+(i+1), _startLatch);
+			}
+			
+				
 					
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -189,5 +232,4 @@ public class ShoeStoreRunner {
 			e.printStackTrace();
 		}
 	}
-	
 }

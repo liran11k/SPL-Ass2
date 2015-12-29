@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
 
 import bgu.spl.app.passiveObjects.NewDiscountBroadcast;
 import bgu.spl.app.passiveObjects.PurchaseOrderRequest;
@@ -26,8 +27,9 @@ public class WebsiteClientService extends MicroService{
 	private LinkedList<PurchaseSchedule> tmpPurchaseSchedule;
 	private Set<String> myWishList;
 	private int tick;
+	private CountDownLatch _countDownLatch;
 	
-	public WebsiteClientService(String name, List<PurchaseSchedule> purchaseSchedule, Set<String> wishList) {
+	public WebsiteClientService(String name, List<PurchaseSchedule> purchaseSchedule, Set<String> wishList, CountDownLatch countDownLatch) {
 		super(name);
 		myPurchaseSchedule = new LinkedList<PurchaseSchedule>();
 		myPurchaseWaiting = new HashMap<PurchaseOrderRequest,Boolean>();
@@ -36,6 +38,7 @@ public class WebsiteClientService extends MicroService{
 		copyAndSort(purchaseSchedule);
 		copySet(wishList);
 		tick=0;
+		_countDownLatch = countDownLatch;
 	}
 	
 	private void copyAndSort(List<PurchaseSchedule> toCopy) {
@@ -55,6 +58,7 @@ public class WebsiteClientService extends MicroService{
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void initialize() {
+		
 		
 		subscribeBroadcast(TickBroadcast.class, currentTick ->{
 			tick = currentTick.getCurrent();
@@ -84,6 +88,8 @@ public class WebsiteClientService extends MicroService{
 				myPurchaseWaiting.put(request, true);
 			}
 		});
+		
+		_countDownLatch.countDown();
 	}
 	
 	//TODO: delete this method for checking

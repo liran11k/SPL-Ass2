@@ -1,5 +1,7 @@
 package bgu.spl.app.passiveObjects;
 
+import bgu.spl.mics.Broadcast;
+
 public class DiscountSchedule {
 	private String shoeType;
 	private int tick;
