@@ -47,20 +47,6 @@ public class Store{
 		BuyResult result = BuyResult.getStatus(shoe,onlyDiscount);
 		return result;
 	}
-	/*
-	public synchronized void Buy(String shoeType, boolean onlyDiscount){
-		BuyResult result = take(shoeType,onlyDiscount);
-		ShoeStorageInfo shoe = myStorage.get(shoeType);
-		if(result == BuyResult.DISCOUNTED_PRICE){
-			 remove(shoeType);
-		}
-		else if(result == BuyResult.NOT_IN_STOCK){
-			RestockRequest rstk = new RestockRequest();
-			sendRequest(rstk, v ->{
-				
-			});
-		}
-	}*/
 	
 	public void add(String shoeType, int amount){
 		if(myStorage.containsKey(shoeType)){
@@ -89,11 +75,13 @@ public class Store{
 	
 	public void file(Receipt receipt){
 		myReceipts.add(receipt);
+		MessageBusImpl.LOGGER.info("Receipt created for ShoeType: " + receipt.getShoeType() + " (" + receipt.getAmount() + ") " + "Buyer: " + receipt.getCustomer());
 	}
 	
 	public void print(){
 		for (Map.Entry<String, ShoeStorageInfo> shoe : myStorage.entrySet())
 			shoe.getValue().print();
+		System.err.println();
 		for (Receipt receipt : myReceipts)
 			receipt.print();
 	}

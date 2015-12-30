@@ -1,0 +1,458 @@
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: seller 3 registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Reuven registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Yosef registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Shraga registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Bruria registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Ilanit registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Simha registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Shimshon registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Nurith registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Group-Buyers2 registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Group-Buyers1 registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Timer registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: seller 2 registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.app.MicroServices.TimeService initialize
+INFO: Timer is waiting for services..
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: seller 1 registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Bracha registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: factory 2 registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: factory 1 registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: manager registered to MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.app.MicroServices.TimeService initialize
+INFO: All services done initializing --> Timer starts!
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:06 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 1
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: manager sending class bgu.spl.app.passiveObjects.NewDiscountBroadcast
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.MicroService sendRequest
+INFO: Ilanit sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.MicroService sendRequest
+INFO: Nurith sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:06 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: uncomfortable-high-heels (1) Buyer: Ilanit
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.MicroService terminate
+INFO: Nurith is terminating..
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Nurith unregistered from MessageBus
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:06 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 2
+Dec 30, 2015 7:48:06 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:06 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 3
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:07 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 4
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:07 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 5
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:07 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 6
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:07 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 7
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: manager sending class bgu.spl.app.passiveObjects.NewDiscountBroadcast
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService sendRequest
+INFO: Bracha sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:07 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Bracha
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService terminate
+INFO: Bracha is terminating..
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Bracha unregistered from MessageBus
+Dec 30, 2015 7:48:07 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:07 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 8
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:08 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 9
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Shimshon sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Shimshon
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:08 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 10
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:08 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 11
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers2 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Shraga sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 12
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Dec 30, 2015 7:48:08 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Dec 30, 2015 7:48:08 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Dec 30, 2015 7:48:08 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: green-flip-flops (1) Buyer: Shraga
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendRequest
+INFO: Group-Buyers1 sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:08 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:08 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 13
+Dec 30, 2015 7:48:09 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:09 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 14
+Dec 30, 2015 7:48:09 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:09 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 15
+Dec 30, 2015 7:48:09 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:09 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 16
+Dec 30, 2015 7:48:09 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:09 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 17
+Dec 30, 2015 7:48:09 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: manager sending class bgu.spl.app.passiveObjects.NewDiscountBroadcast
+Dec 30, 2015 7:48:09 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:09 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 18
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:10 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 19
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.MicroService sendRequest
+INFO: Shimshon sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:10 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 20
+Dec 30, 2015 7:48:10 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Shimshon
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.MicroService terminate
+INFO: Shimshon is terminating..
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Shimshon unregistered from MessageBus
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:10 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 21
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:10 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 22
+Dec 30, 2015 7:48:10 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:10 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 23
+Dec 30, 2015 7:48:11 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:11 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 24
+Dec 30, 2015 7:48:11 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:11 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 25
+Dec 30, 2015 7:48:11 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:11 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 26
+Dec 30, 2015 7:48:11 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:11 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 27
+Dec 30, 2015 7:48:12 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:12 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 28
+Dec 30, 2015 7:48:12 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:12 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 29
+Dec 30, 2015 7:48:12 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:12 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 30
+Dec 30, 2015 7:48:12 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:12 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 31
+Dec 30, 2015 7:48:12 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:12 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 32
+Dec 30, 2015 7:48:13 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:13 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 33
+Dec 30, 2015 7:48:13 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:13 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 34
+Dec 30, 2015 7:48:13 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:13 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 35
+Dec 30, 2015 7:48:13 PM bgu.spl.mics.MicroService sendRequest
+INFO: Yosef sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:13 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:13 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 36
+Dec 30, 2015 7:48:13 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:13 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 37
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:14 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 38
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:14 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 39
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:14 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 40
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.MicroService sendRequest
+INFO: Ilanit sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:14 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: uncomfortable-high-heels (1) Buyer: Ilanit
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.MicroService terminate
+INFO: Ilanit is terminating..
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Ilanit unregistered from MessageBus
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:14 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 41
+Dec 30, 2015 7:48:14 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:14 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 42
+Dec 30, 2015 7:48:15 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:15 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 43
+Dec 30, 2015 7:48:15 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:15 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 44
+Dec 30, 2015 7:48:15 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:15 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 45
+Dec 30, 2015 7:48:15 PM bgu.spl.mics.MicroService sendRequest
+INFO: Reuven sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:15 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:15 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 46
+Dec 30, 2015 7:48:15 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:15 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 47
+Dec 30, 2015 7:48:16 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:16 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 48
+Dec 30, 2015 7:48:16 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:16 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 49
+Dec 30, 2015 7:48:16 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:16 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 50
+Dec 30, 2015 7:48:16 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:16 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 51
+Dec 30, 2015 7:48:16 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:16 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 52
+Dec 30, 2015 7:48:17 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:17 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 53
+Dec 30, 2015 7:48:17 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:17 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 54
+Dec 30, 2015 7:48:17 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:17 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 55
+Dec 30, 2015 7:48:17 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:17 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 56
+Dec 30, 2015 7:48:17 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:17 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 57
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:18 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 58
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:18 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 59
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: manager sending class bgu.spl.app.passiveObjects.NewDiscountBroadcast
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: manager sending class bgu.spl.app.passiveObjects.NewDiscountBroadcast
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendRequest
+INFO: Shraga sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendRequest
+INFO: Bruria sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:18 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: ugly-sandals (1) Buyer: Bruria
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Bruria is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Bruria unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TickBroadcast
+Dec 30, 2015 7:48:18 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 60
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendRequest
+INFO: Simha sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendRequest
+INFO: Simha sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendRequest
+INFO: Simha sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendRequest
+INFO: Simha sending class bgu.spl.app.passiveObjects.PurchaseOrderRequest
+Dec 30, 2015 7:48:18 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService sendBroadcast
+INFO: Timer sending class bgu.spl.app.passiveObjects.TerminationBroadcast
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Timer is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Group-Buyers2 is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: manager is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: factory 2 is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Shraga is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Group-Buyers2 unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Group-Buyers1 is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Group-Buyers1 unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Yosef is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Yosef unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: factory 1 is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: factory 1 unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Shraga unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: factory 2 unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: manager unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: seller 1 is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: seller 1 unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Reuven is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Reuven unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: seller 2 is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: seller 2 unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.MicroService terminate
+INFO: Simha is terminating..
+Dec 30, 2015 7:48:18 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Simha unregistered from MessageBus
+Dec 30, 2015 7:48:18 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha

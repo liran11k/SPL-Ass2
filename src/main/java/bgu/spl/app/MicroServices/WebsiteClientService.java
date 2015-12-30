@@ -17,6 +17,7 @@ import bgu.spl.app.passiveObjects.PurchaseOrderRequest;
 import bgu.spl.app.passiveObjects.PurchaseSchedule;
 import bgu.spl.app.passiveObjects.PurchaseScheduleComparator;
 import bgu.spl.app.passiveObjects.Store;
+import bgu.spl.app.passiveObjects.TerminationBroadcast;
 import bgu.spl.app.passiveObjects.TickBroadcast;
 import bgu.spl.mics.MicroService;
 import bgu.spl.mics.Request;
@@ -27,9 +28,10 @@ public class WebsiteClientService extends MicroService{
 	private LinkedList<PurchaseSchedule> tmpPurchaseSchedule;
 	private Set<String> myWishList;
 	private int tick;
-	private CountDownLatch _countDownLatch;
+	private CountDownLatch _startLatch;
+	private CountDownLatch _finishLatch;
 	
-	public WebsiteClientService(String name, List<PurchaseSchedule> purchaseSchedule, Set<String> wishList, CountDownLatch countDownLatch) {
+	public WebsiteClientService(String name, List<PurchaseSchedule> purchaseSchedule, Set<String> wishList, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
 		myPurchaseSchedule = new LinkedList<PurchaseSchedule>();
 		myPurchaseWaiting = new HashMap<PurchaseOrderRequest,Boolean>();
@@ -38,7 +40,8 @@ public class WebsiteClientService extends MicroService{
 		copyAndSort(purchaseSchedule);
 		copySet(wishList);
 		tick=0;
-		_countDownLatch = countDownLatch;
+		_startLatch = startLatch;
+		_finishLatch = finishLatch;
 	}
 	
 	private void copyAndSort(List<PurchaseSchedule> toCopy) {
@@ -62,34 +65,46 @@ public class WebsiteClientService extends MicroService{
 		
 		subscribeBroadcast(TickBroadcast.class, currentTick ->{
 			tick = currentTick.getCurrent();
-			while(myPurchaseSchedule.getFirst().getTick() == tick){
+			while(!myPurchaseSchedule.isEmpty() && myPurchaseSchedule.getFirst().getTick() == tick){
 				PurchaseOrderRequest request = new PurchaseOrderRequest(myPurchaseSchedule.getFirst().getType(), tick, false, getName());
 				boolean requestReceived = sendRequest(request, v -> {
 					myPurchaseWaiting.remove(request);
 					if(myWishList.contains(request.getShoeType()))
 						myWishList.remove(request.getShoeType());
-					if(myPurchaseSchedule.isEmpty() && myWishList.isEmpty() && myPurchaseWaiting.isEmpty())
+					if(myPurchaseSchedule.isEmpty() && myWishList.isEmpty() && myPurchaseWaiting.isEmpty()){
 						terminate();
+						_finishLatch.countDown();
+					}
 				});
 				myPurchaseSchedule.removeFirst();
 				myPurchaseWaiting.put(request, true);
 			}
 		});
 		
-		subscribeBroadcast(NewDiscountBroadcast.class, wish->{		
-			PurchaseOrderRequest request = new PurchaseOrderRequest(wish.getShoeType(), tick, true, getName());
-			boolean requestReceived = sendRequest(request, v -> {
-				myPurchaseWaiting.remove(request);
-				if(myPurchaseSchedule.isEmpty() && myWishList.isEmpty() && myPurchaseWaiting.isEmpty())
-					terminate();
-			});
-			if(requestReceived){
-				myWishList.remove(wish.getShoeType());
-				myPurchaseWaiting.put(request, true);
+		subscribeBroadcast(NewDiscountBroadcast.class, discount->{		
+			if(myWishList.contains(discount.getShoeType())){
+				PurchaseOrderRequest request = new PurchaseOrderRequest(discount.getShoeType(), tick, true, getName());
+				boolean requestReceived = sendRequest(request, v -> {
+					myPurchaseWaiting.remove(request);
+					if(myPurchaseSchedule.isEmpty() && myWishList.isEmpty() && myPurchaseWaiting.isEmpty()){
+						terminate();
+						_finishLatch.countDown();
+					}
+				});
+				if(requestReceived){
+					myWishList.remove(discount.getShoeType());
+					myPurchaseWaiting.put(request, true);
+				}
+				
 			}
 		});
 		
-		_countDownLatch.countDown();
+		subscribeBroadcast(TerminationBroadcast.class, v ->{
+			terminate();
+			_finishLatch.countDown();
+		});
+		
+		_startLatch.countDown();
 	}
 	
 	//TODO: delete this method for checking

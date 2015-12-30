@@ -20,4 +20,8 @@ public class DiscountSchedule {
 	public int getTick(){
 		return tick;
 	}
+	
+	public int getDiscountedAmount(){
+		return amount;
+	}
 }

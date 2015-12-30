@@ -11,10 +11,13 @@ import java.util.concurrent.CountDownLatch;
 import bgu.spl.app.passiveObjects.DiscountSchedule;
 import bgu.spl.app.passiveObjects.DiscountsComparator;
 import bgu.spl.app.passiveObjects.ManufacturingOrderRequest;
+import bgu.spl.app.passiveObjects.NewDiscountBroadcast;
 import bgu.spl.app.passiveObjects.PurchaseSchedule;
 import bgu.spl.app.passiveObjects.Receipt;
 import bgu.spl.app.passiveObjects.RestockRequest;
+import bgu.spl.app.passiveObjects.ShoeStorageInfo;
 import bgu.spl.app.passiveObjects.Store;
+import bgu.spl.app.passiveObjects.TerminationBroadcast;
 import bgu.spl.app.passiveObjects.TickBroadcast;
 import bgu.spl.mics.Broadcast;
 import bgu.spl.mics.MicroService;
@@ -26,16 +29,18 @@ public class ManagementService extends MicroService {
 	private int tick;
 	private Map <String,Integer> myOrders;
 	private Map <String, LinkedList<RestockRequest>> _myOrders;
-	private CountDownLatch _countDownLatch;
+	private CountDownLatch _startLatch;
+	private CountDownLatch _finishLatch;
 	
-	public ManagementService(String name, List<DiscountSchedule> discounts, CountDownLatch countDownLatch) {
+	public ManagementService(String name, List<DiscountSchedule> discounts, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
 		myDiscounts = new LinkedList<DiscountSchedule>();
 		myOrders = new HashMap<String, Integer>();
 		_myOrders = new HashMap<String, LinkedList<RestockRequest>>();
 		copyAndSort(discounts);
 		tick=0;
-		_countDownLatch = countDownLatch;
+		_startLatch = startLatch;
+		_finishLatch = finishLatch;
 	}
 	
 	private void copyAndSort(List<DiscountSchedule> toCopy){
@@ -56,10 +61,27 @@ public class ManagementService extends MicroService {
 		 */
 		subscribeBroadcast(TickBroadcast.class, v ->{
 			tick=v.getCurrent();
-			while(myDiscounts.getFirst().getTick()==tick){
-				sendBroadcast((Broadcast)myDiscounts.getFirst());
+			while(!myDiscounts.isEmpty() && myDiscounts.getFirst().getTick()==tick){
+				NewDiscountBroadcast discount = new NewDiscountBroadcast(myDiscounts.getFirst().getType(), myDiscounts.getFirst().getDiscountedAmount());
+				int newDiscountAmount=discount.getDiscountedAmount();
+				synchronized (Store.getInstance()) {
+					ShoeStorageInfo shoe = Store.getInstance().getShoe(discount.getShoeType());
+					if(shoe != null){
+						int amountOnStorage = shoe.getAmountOnStorage();
+						if(amountOnStorage<newDiscountAmount){
+							newDiscountAmount=amountOnStorage;
+						}
+						Store.getInstance().getShoe(myDiscounts.getFirst().getType()).setDiscountAmount(newDiscountAmount);
+						sendBroadcast((Broadcast)discount);
+					}
+				}
 				myDiscounts.removeFirst();
 			}
+		});
+		
+		subscribeBroadcast(TerminationBroadcast.class, v ->{
+			terminate();
+			_finishLatch.countDown();
 		});
 		
 		/**
@@ -105,7 +127,7 @@ public class ManagementService extends MicroService {
 			}
 		});
 		
-		_countDownLatch.countDown();
+		_startLatch.countDown();
 	}
 	
 	//TODO: delete this checking method

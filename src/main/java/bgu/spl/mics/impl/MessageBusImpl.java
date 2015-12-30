@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.logging.Logger;
 
 import bgu.spl.mics.Broadcast;
 import bgu.spl.mics.Message;
@@ -30,6 +31,7 @@ public class MessageBusImpl implements MessageBus{
     //Auxiliary map to get request & requester more efficiently
     private Map<Request<?>, MicroService> _request_and_requester;
 
+    public final static Logger LOGGER = Logger.getLogger(MessageBusImpl.class.getName()); 
     /**
      * As taught in class, we need 3 methods
      * in order to create safe singleton implementation.
@@ -44,12 +46,12 @@ public class MessageBusImpl implements MessageBus{
     }
 
     private MessageBusImpl(){
-    	_micro_services = new HashMap<>();
-    	_request_subscribers_lists = new HashMap<>();
-    	_broadcast_subscribers_lists = new HashMap<>();
-    	_micro_service_request_types = new HashMap<>();
-    	_micro_service_broadcast_types = new HashMap<>();
-    	_request_and_requester = new HashMap<>();
+    	_micro_services = new ConcurrentHashMap<>();
+    	_request_subscribers_lists = new ConcurrentHashMap<>();
+    	_broadcast_subscribers_lists = new ConcurrentHashMap<>();
+    	_micro_service_request_types = new ConcurrentHashMap<>();
+    	_micro_service_broadcast_types = new ConcurrentHashMap<>();
+    	_request_and_requester = new ConcurrentHashMap<>();
     }
 
     public static MessageBusImpl getInstance(){
@@ -57,10 +59,9 @@ public class MessageBusImpl implements MessageBus{
     }
 
     @Override
-    public void subscribeRequest(Class<? extends Request> type, MicroService m) {
+    public synchronized void subscribeRequest(Class<? extends Request> type, MicroService m) {
 		if(_request_subscribers_lists.containsKey(type))
 				_request_subscribers_lists.get(type).add(m);
-        
         else{
         	_request_subscribers_lists.put(type, new ArrayList<>());
         	_request_subscribers_lists.get(type).add(m);
@@ -72,7 +73,7 @@ public class MessageBusImpl implements MessageBus{
     /**
      * Connect micro service 'm' queue to the subscribed message type list
      */
-    public void subscribeBroadcast(Class<? extends Broadcast> type, MicroService m) {
+    public synchronized void subscribeBroadcast(Class<? extends Broadcast> type, MicroService m) {
     	if(_broadcast_subscribers_lists.containsKey(type))
 				_broadcast_subscribers_lists.get(type).add(m);
         else{
@@ -91,19 +92,17 @@ public class MessageBusImpl implements MessageBus{
     	RequestCompleted<T> completed = new RequestCompleted<>(r, result);
     	_micro_services.get(_request_and_requester.get(r)).add(completed);
 		_request_and_requester.remove(r);
-		notify();
+		notifyAll();
     }
 
     @Override
     public synchronized void sendBroadcast(Broadcast b) {
     	if(_broadcast_subscribers_lists.containsKey(b.getClass())){
     		Iterator<MicroService> iterator = _broadcast_subscribers_lists.get(b.getClass()).iterator();
-    		while(iterator.hasNext()){
-				_micro_services.get(iterator).add((Message)b);
-    			iterator.next();
-    		}
+    		while(iterator.hasNext())
+				_micro_services.get(iterator.next()).add((Message)b);
+    		notifyAll();
     	}
-    	notifyAll();
     }
 
     /**
@@ -129,26 +128,29 @@ public class MessageBusImpl implements MessageBus{
     }
 
     @Override
-    public void register(MicroService m) {
-        _micro_services.put(m, new ArrayList<>());
+    public synchronized void register(MicroService m) {
+    	LOGGER.info(m.getName() + " registered to MessageBus");
+    	_micro_services.put(m, new ArrayList<>());
         _micro_service_request_types.put(m, new ArrayList<>());
         _micro_service_broadcast_types.put(m, new ArrayList<>());
+        
     }
 
     @Override
     public synchronized void unregister(MicroService m) {
-        unsubscribe(m, _request_subscribers_lists);
+        unsubscribe(m);
         _micro_services.remove(m);
+        LOGGER.info(m.getName() + " unregistered from MessageBus");
     }
 
     @Override
     public synchronized Message awaitMessage(MicroService m) throws InterruptedException {
     	Message message = null;
-    	while( _micro_services.get(m).isEmpty())
+    	while(_micro_services.get(m).isEmpty())
     		wait();
-		message = (Message) _micro_services.get(m).get(0);
+    	message = (Message) _micro_services.get(m).get(0);
 		_micro_services.get(m).remove(0);
-        return message;
+    	return message;
     }
 
     /**
@@ -157,7 +159,7 @@ public class MessageBusImpl implements MessageBus{
      * @param m microservice's queue to remove
      * @param toRemoveFrom Message list to remove the queue from
      */
-    public void unsubscribe(MicroService m, Map toRemoveFrom){
+    public void unsubscribe(MicroService m){
     	ArrayList list = _micro_service_request_types.get(m);
     	while(!list.isEmpty())
     	{

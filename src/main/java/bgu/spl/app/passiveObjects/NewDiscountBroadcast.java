@@ -5,7 +5,6 @@ import bgu.spl.mics.Broadcast;
 public class NewDiscountBroadcast implements Broadcast{
 	private String shoeType;
 	private int discountedAmount;
-	//How much discount
 	
 	public NewDiscountBroadcast(String shoeType, int discountedAmount){
 		this.shoeType=shoeType;

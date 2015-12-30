@@ -7,6 +7,7 @@ import java.util.concurrent.CountDownLatch;
 import bgu.spl.app.passiveObjects.ManufacturingOrderRequest;
 import bgu.spl.app.passiveObjects.Receipt;
 import bgu.spl.app.passiveObjects.Store;
+import bgu.spl.app.passiveObjects.TerminationBroadcast;
 import bgu.spl.app.passiveObjects.TickBroadcast;
 import bgu.spl.mics.MicroService;
 
@@ -15,13 +16,15 @@ public class ShoeFactoryService extends MicroService{
 	private int tick;
 	// list to keep track of products' manufacturing
 	private LinkedList<ManufacturingOrderRequest> orderRequests;
-	private CountDownLatch _countDownLatch;
+	private CountDownLatch _startLatch;
+	private CountDownLatch _finishLatch;
 	
-	public ShoeFactoryService(String name, CountDownLatch countDownLatch) {
+	public ShoeFactoryService(String name, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
 		tick=0;
 		orderRequests = new LinkedList<ManufacturingOrderRequest>();
-		_countDownLatch = countDownLatch;
+		_startLatch = startLatch;
+		_finishLatch = finishLatch;
 	}
 
 	@Override
@@ -50,6 +53,11 @@ public class ShoeFactoryService extends MicroService{
 			}
 		});
 		
+		subscribeBroadcast(TerminationBroadcast.class, v ->{
+			terminate();
+			_finishLatch.countDown();
+		});
+		
 		/**
 		 * For each request arrived
 		 * --> add to requests' list
@@ -58,7 +66,7 @@ public class ShoeFactoryService extends MicroService{
 			orderRequests.addLast(v);
 		});
 		
-		_countDownLatch.countDown();
+		_startLatch.countDown();
 	}
 
 }

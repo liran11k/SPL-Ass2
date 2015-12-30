@@ -12,6 +12,8 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,6 +24,7 @@ import bgu.spl.app.passiveObjects.DiscountSchedule;
 import bgu.spl.app.passiveObjects.PurchaseSchedule;
 import bgu.spl.app.passiveObjects.ShoeStorageInfo;
 import bgu.spl.app.passiveObjects.Store;
+import bgu.spl.mics.impl.MessageBusImpl;
 
 public class ShoeStoreRunner {
 	
@@ -51,15 +54,34 @@ public class ShoeStoreRunner {
 		 * 5. Print all store's receipts 
 		 */
 		
-		Json();
+		jsonLoad();
+		//testJsonLoad();
 		
-		_timer = new TimeService(_speed, _duration, _startLatch);
-		ExecutorService executor = Executors.newFixedThreadPool(_numOfServices);
+		
+		/**
+		 * Logger handling --> saving to file
+		 */
+		FileHandler fh;
+		try {
+			fh = new FileHandler("logger.txt");
+			MessageBusImpl.LOGGER.addHandler(fh);
+			SimpleFormatter formatter = new SimpleFormatter();
+			fh.setFormatter(formatter);
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		/**
+		 * Execute all threads
+		 */
+		_timer = new TimeService(_speed, _duration, _startLatch, _finishLatch);
+		ExecutorService executor = Executors.newFixedThreadPool(_numOfServices+1);
 		//TODO: check with variety of threads
 		
 		executor.execute(_timer);
 		executor.execute(_manager);
-		System.out.println(_startLatch.getCount());
 		for(int i=0; i<_numOfFactories; i++)
 			executor.execute(_factories[i]);
 		for(int i=0; i<_numOfSellers; i++)
@@ -68,46 +90,21 @@ public class ShoeStoreRunner {
 			executor.execute(_clients[i]);
 		
 		executor.shutdown();
-		
+			
+		// Latch object to wait for all services to finish
+		// before printing the store's receipt
 		try {
-			executor.awaitTermination(5, TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			_finishLatch.await();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
 		}
-
 		
-		//Test Json load:
-		/*
-		System.out.println("Timer: "+ _timer.getName() +" "+ _timer.getSpeed() +" "+ _timer.getDuration());
-		System.out.println("Manager:" +_manager.getName());
-		for(int i=0; i<_manager.getDiscounts().size(); i++){
-			System.out.print("Type & tick: ");
-			System.out.print(((DiscountSchedule) _manager.getDiscounts().get(i)).getType());
-			System.out.println(((DiscountSchedule) _manager.getDiscounts().get(i)).getTick());
-		}
-		for(int i=0; i<_factories.length; i++)
-			System.out.println("Factory: " +_factories[i].getName());
-		for(int i=0; i<_sellers.length; i++)
-			System.out.println("Seller:" +_sellers[i].getName());
-		for(int i=0; i<_clients.length; i++){
-			System.out.println("Client: " +_clients[i].getName());
-			for(int j=0; j<_clients[i].getPurchaseList().size(); j++){
-				System.out.print("Purchase: ");
-				System.out.print(((PurchaseSchedule)_clients[i].getPurchaseList().get(j)).getType());
-				System.out.println(((PurchaseSchedule)_clients[i].getPurchaseList().get(j)).getTick());
-			}
-			for(String wish : _clients[i].getWishList()){
-				System.out.print("wish: ");
-				System.out.println(wish);
-			}
-			
-			
-		}
-		*/
+		Store.getInstance().print();
+		
+		MessageBusImpl.LOGGER.info("Program terminated.");
 	}
 	
-	private static void Json(){
+	private static void jsonLoad(){
 		
 		JSONParser parser = new JSONParser();
 		
@@ -115,7 +112,7 @@ public class ShoeStoreRunner {
 			/**
 			 * mainObj: main object to iterate through the json file
 			 */
-			Object obj = parser.parse(new FileReader("example.txt"));
+			Object obj = parser.parse(new FileReader("example2.txt"));
 			JSONObject mainObject= (JSONObject) obj;
 			
 
@@ -178,6 +175,7 @@ public class ShoeStoreRunner {
 			
 			_numOfServices = _numOfFactories + _numOfSellers + _numOfClients + 1 /*for manager*/;
 			_startLatch = new CountDownLatch(_numOfServices);
+			_finishLatch = new CountDownLatch(_numOfServices + 1); /*for timer*/
 			
 			_clients = new WebsiteClientService[customers.size()];
 			for(int i=0; i<customers.size(); i++){
@@ -198,25 +196,25 @@ public class ShoeStoreRunner {
 				}
 				// create WebsiteClientService for each customer
 				// and create a database of clients
-				WebsiteClientService client = new WebsiteClientService(name, purchasesSchedule, wishList, _startLatch);
+				WebsiteClientService client = new WebsiteClientService(name, purchasesSchedule, wishList, _startLatch, _finishLatch);
 				_clients[i]= client;
 			}
 			
 			
 			// Manager:
-			_manager = new ManagementService("manager", discounts, _startLatch);
+			_manager = new ManagementService("manager", discounts, _startLatch, _finishLatch);
 			
 			
 			// Factories:
 			_factories = new ShoeFactoryService[_numOfFactories];
 			for(int i=0; i<_numOfFactories; i++){
-				_factories[i] = new ShoeFactoryService("factory "+(i+1), _startLatch);
+				_factories[i] = new ShoeFactoryService("factory "+(i+1), _startLatch, _finishLatch);
 			}
 			
 			// Sellers:
 			_sellers = new SellingService[_numOfSellers];
 			for(int i=0; i<_numOfSellers; i++){
-				_sellers[i] = new SellingService("seller "+(i+1), _startLatch);
+				_sellers[i] = new SellingService("seller "+(i+1), _startLatch, _finishLatch);
 			}
 			
 				
@@ -231,5 +229,33 @@ public class ShoeStoreRunner {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private static void testJsonLoad(){
+		System.out.println("Manager:" +_manager.getName());
+		for(int i=0; i<_manager.getDiscounts().size(); i++){
+			System.out.print("Type & tick: ");
+			System.out.print(((DiscountSchedule) _manager.getDiscounts().get(i)).getType());
+			System.out.println(((DiscountSchedule) _manager.getDiscounts().get(i)).getTick());
+		}
+		for(int i=0; i<_factories.length; i++)
+			System.out.println("Factory: " +_factories[i].getName());
+		for(int i=0; i<_sellers.length; i++)
+			System.out.println("Seller:" +_sellers[i].getName());
+		for(int i=0; i<_clients.length; i++){
+			System.out.println("Client: " +_clients[i].getName());
+			for(int j=0; j<_clients[i].getPurchaseList().size(); j++){
+				System.out.print("Purchase: ");
+				System.out.print(((PurchaseSchedule)_clients[i].getPurchaseList().get(j)).getType());
+				System.out.println(((PurchaseSchedule)_clients[i].getPurchaseList().get(j)).getTick());
+			}
+			for(String wish : _clients[i].getWishList()){
+				System.out.print("wish: ");
+				System.out.println(wish);
+			}
+			
+			
+		}
+	
 	}
 }
