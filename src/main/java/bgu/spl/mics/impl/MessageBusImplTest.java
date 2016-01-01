@@ -13,7 +13,10 @@ import bgu.spl.app.MicroServices.ManagementService;
 import bgu.spl.app.MicroServices.ShoeFactoryService;
 import bgu.spl.app.passiveObjects.ManufacturingOrderRequest;
 import bgu.spl.app.passiveObjects.NewDiscountBroadcast;
+import bgu.spl.app.passiveObjects.Receipt;
+import bgu.spl.mics.Message;
 import bgu.spl.mics.MicroService;
+import bgu.spl.mics.RequestCompleted;
 
 public class MessageBusImplTest {
 
@@ -110,12 +113,45 @@ public class MessageBusImplTest {
 		CountDownLatch start = new CountDownLatch(1);
 		CountDownLatch finish = new CountDownLatch(1);
 		MicroService m = new ShoeFactoryService("factory", start, finish);
-		MicroService m2 = new ShoeFactoryService("factory2", start, finish);
 		MessageBusImpl.getInstance().register(m);
 		MessageBusImpl.getInstance().subscribeBroadcast(NewDiscountBroadcast.class, m);
 		NewDiscountBroadcast discount = new NewDiscountBroadcast("ShoeA", 1);
 		MessageBusImpl.getInstance().sendBroadcast(discount);
 		assertNotNull(MessageBusImpl.getInstance().getQueues()[0].get(0));
 		assertTrue(MessageBusImpl.getInstance().getQueues()[0].get(0) == discount);
+	}
+	
+	@Test
+	public void testComplete(){
+		CountDownLatch start = new CountDownLatch(1);
+		CountDownLatch finish = new CountDownLatch(1);
+		MicroService m1 = new ShoeFactoryService("factory", start, finish);
+		MessageBusImpl.getInstance().register(m1);
+		MessageBusImpl.getInstance().subscribeRequest(ManufacturingOrderRequest.class, m1);
+		ManufacturingOrderRequest request = new ManufacturingOrderRequest("ShoeA", 1, 1);
+		MessageBusImpl.getInstance().sendRequest(request, m1);
+		Receipt receipt = new Receipt("factory", "factory2", "ShoeA", false, 1, 1, 1);
+		MessageBusImpl.getInstance().complete(request, receipt);
+		assertTrue(((RequestCompleted)MessageBusImpl.getInstance().getQueues()[0].get(1)).getResult() == receipt);
+	}
+	
+	@Test
+	public void testAwaiteMessege(){
+		CountDownLatch start = new CountDownLatch(1);
+		CountDownLatch finish = new CountDownLatch(1);
+		MicroService m = new ShoeFactoryService("factory", start, finish);
+		MessageBusImpl.getInstance().register(m);
+		MessageBusImpl.getInstance().subscribeBroadcast(NewDiscountBroadcast.class, m);
+		NewDiscountBroadcast discount = new NewDiscountBroadcast("ShoeA", 1);
+		MessageBusImpl.getInstance().sendBroadcast(discount);
+		assertFalse(MessageBusImpl.getInstance().getQueues()[0].isEmpty());
+		try {
+			assertNotNull(MessageBusImpl.getInstance().awaitMessage(m));
+			MessageBusImpl.getInstance().sendBroadcast(discount);
+			assertTrue(MessageBusImpl.getInstance().awaitMessage(m) == discount);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

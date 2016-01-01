@@ -5,10 +5,10 @@ public class ShoeStorageInfo {
 	private int amountOnStorage;
 	private int discountedAmount;
 	
-	public ShoeStorageInfo(String shoeType, int amountOnStorage, int discountedAmount){
+	public ShoeStorageInfo(String shoeType, int amountOnStorage){
 		this.shoeType=shoeType;
 		this.amountOnStorage=amountOnStorage;
-		this.discountedAmount=discountedAmount;
+		this.discountedAmount=0;
 	}
 	
 	//Copy constructor
@@ -35,7 +35,7 @@ public class ShoeStorageInfo {
 	}
 	
 	public void setDiscountAmount(int newDiscoundAmount){
-		this.discountedAmount = discountedAmount + newDiscoundAmount;
+		this.discountedAmount = newDiscoundAmount;
 	}
 	
 	public void print(){

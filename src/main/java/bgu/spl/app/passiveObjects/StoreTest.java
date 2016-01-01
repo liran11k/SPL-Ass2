@@ -32,7 +32,9 @@ public class StoreTest {
 	
 	@Test
 	public void testLoad() {
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		assertArrayEquals(storage, Store.getInstance().getStorage());
 	}
@@ -40,7 +42,9 @@ public class StoreTest {
 	@Test
 	public void testStorageLoadSize() {
 		Store.getInstance();
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		assertEquals(3, (double)Store.getInstance().getStorageSize() ,3);
 	}
@@ -54,14 +58,16 @@ public class StoreTest {
 	
 	@Test
 	public void testAdd() {
-		ShoeStorageInfo shoe = new ShoeStorageInfo("ShoeA", 0, 0);
+		ShoeStorageInfo shoe = new ShoeStorageInfo("ShoeA", 0);
 		Store.getInstance().add("ShoeA", 0);
 		assertTrue(Store.getInstance().getStorageNames().contains("ShoeA"));
 	}
 	
 	@Test
 	public void testRemove() {
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		Store.getInstance().remove("ShoeB");
 		assertEquals(0, (double)Store.getInstance().getShoe("ShoeB").getAmountOnStorage(), 0);
@@ -69,7 +75,9 @@ public class StoreTest {
 	
 	@Test
 	public void testTake() {
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		BuyResult result = Store.getInstance().take("ShoeB", false);
 		assertTrue(result.compareTo(BuyResult.DISCOUNTED_PRICE) == 0);
@@ -77,7 +85,9 @@ public class StoreTest {
 	
 	@Test
 	public void testTakeB() {
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 1, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 1), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		BuyResult result = Store.getInstance().take("ShoeA", true);
 		assertTrue(result.compareTo(BuyResult.NOT_ON_DISCOUNT) == 0);
@@ -85,7 +95,9 @@ public class StoreTest {
 	
 	@Test
 	public void testTakeC() {
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 0), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		BuyResult result = Store.getInstance().take("Shoe!", false);
 		assertTrue(result.compareTo(BuyResult.NOT_IN_STOCK) == 0);
@@ -93,7 +105,9 @@ public class StoreTest {
 	
 	@Test
 	public void testTakeD() {
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 1, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 1), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		BuyResult result = Store.getInstance().take("ShoeA", false);
 		assertTrue(result.compareTo(BuyResult.REGULAR_PRICE) == 0);
@@ -101,7 +115,9 @@ public class StoreTest {
 	
 	@Test
 	public void testAddDiscount() {
-		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 2, 0), new ShoeStorageInfo("ShoeB", 1, 1), new ShoeStorageInfo("ShoeC", 2, 2)};
+		ShoeStorageInfo[] storage = {new ShoeStorageInfo("ShoeA", 2), new ShoeStorageInfo("ShoeB", 1), new ShoeStorageInfo("ShoeC", 2)};
+		storage[1].setDiscountAmount(1);
+		storage[2].setDiscountAmount(2);
 		Store.getInstance().load(storage);
 		assertEquals(0, (double)Store.getInstance().getShoe("ShoeA").getDiscountedAmount(), 0);
 		Store.getInstance().addDiscount("ShoeA", 1);

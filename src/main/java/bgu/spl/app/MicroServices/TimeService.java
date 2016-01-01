@@ -40,8 +40,6 @@ public class TimeService extends MicroService{
 			e.printStackTrace();
 			return;
 		}
-		//TODO: remove print and activate logger
-		System.out.println("Tick === " + tick);
 		MessageBusImpl.LOGGER.info("All services done initializing --> Timer starts!");
 		
 		time.schedule(
@@ -57,7 +55,7 @@ public class TimeService extends MicroService{
 							time.cancel();
 							MessageBusImpl.LOGGER.info("Timer is waiting a safety time before terminating itself and other services..");
 							try {
-								Thread.sleep(5000);
+								Thread.sleep(1000);
 							} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();

@@ -103,15 +103,15 @@ public class ShoeStoreRunner {
 		
 		MessageBusImpl.LOGGER.info("Program terminated.");
 		
-		MessageBusImpl.LOGGER.info("Purachsed sent: " + WebsiteClientService.countSent);
-		MessageBusImpl.LOGGER.info("Purachsed completed: " + WebsiteClientService.countCompleted);
-		MessageBusImpl.LOGGER.info("Purachsed failed: " + WebsiteClientService.countFailed);
-		MessageBusImpl.LOGGER.info("Restock sent: " + SellingService.countSent);
-		MessageBusImpl.LOGGER.info("Restock completed: " + SellingService.countCompleted);
-		MessageBusImpl.LOGGER.info("Restock failed: " + SellingService.countFailed);
-		MessageBusImpl.LOGGER.info("Manufacture sent: " + ManagementService.countSent);
-		MessageBusImpl.LOGGER.info("Manufacture completed: " + ManagementService.countCompleted);
-		MessageBusImpl.LOGGER.info("Manufacture failed: " + ManagementService.countFailed);
+		MessageBusImpl.LOGGER.info("Purachsed sent: " + WebsiteClientService._countSent);
+		MessageBusImpl.LOGGER.info("Purachsed completed: " + WebsiteClientService._countCompleted);
+		MessageBusImpl.LOGGER.info("Purachsed failed: " + WebsiteClientService._countFailed);
+		MessageBusImpl.LOGGER.info("Restock sent: " + SellingService._countSent);
+		MessageBusImpl.LOGGER.info("Restock completed: " + SellingService._countCompleted);
+		MessageBusImpl.LOGGER.info("Restock failed: " + SellingService._countFailed);
+		MessageBusImpl.LOGGER.info("Manufacture sent: " + ManagementService._countSent);
+		MessageBusImpl.LOGGER.info("Manufacture completed: " + ManagementService._countCompleted);
+		MessageBusImpl.LOGGER.info("Manufacture failed: " + ManagementService._countFailed);
 	}
 	
 	private static void jsonLoad(){
@@ -139,7 +139,7 @@ public class ShoeStoreRunner {
 				JSONObject tmpObject = (JSONObject)initialStorage.get(i);
 				String shoeName = (String) tmpObject.get("shoeType");
 				int amount = (int)(long) tmpObject.get("amount");
-				shoes[i] = new ShoeStorageInfo(shoeName,amount,0);
+				shoes[i] = new ShoeStorageInfo(shoeName,amount);
 			}
 			// TODO: Initialize the store with this storage
 			Store.getInstance().load(shoes);

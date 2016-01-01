@@ -21,5 +21,9 @@ public class NewDiscountBroadcast implements Broadcast{
 
 	public int getDiscountedAmount() {
 		return discountedAmount;
+	}
+
+	public void setDiscountedAmount(int newDiscountAmount) {
+		discountedAmount=newDiscountAmount;
 	}	
 }

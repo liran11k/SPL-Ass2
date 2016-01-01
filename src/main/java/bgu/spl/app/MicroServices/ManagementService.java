@@ -30,36 +30,36 @@ import java.util.logging.Logger;
 import org.junit.internal.runners.statements.Fail;
 
 public class ManagementService extends MicroService {
-	private LinkedList<DiscountSchedule> myDiscounts;
-	private int tick;
-	private Map <String,Integer> myOrders;
+	private LinkedList<DiscountSchedule> _myDiscounts;
+	private int _tick;
+	private Map <String,Integer> myOrdersCount;
 	private Map <String, LinkedList<RestockRequest>> _myOrders;
 	private CountDownLatch _startLatch;
 	private CountDownLatch _finishLatch;
-	public static int countSent;
-	public static int countCompleted;
-	public static int countFailed;
+	public static int _countSent;
+	public static int _countCompleted;
+	public static int _countFailed;
 	
 	public ManagementService(String name, List<DiscountSchedule> discounts, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
-		myDiscounts = new LinkedList<DiscountSchedule>();
-		myOrders = new HashMap<String, Integer>();
+		_myDiscounts = new LinkedList<DiscountSchedule>();
+		myOrdersCount = new HashMap<String, Integer>();
 		_myOrders = new HashMap<String, LinkedList<RestockRequest>>();
 		copyAndSort(discounts);
-		tick=0;
+		_tick=0;
 		_startLatch = startLatch;
 		_finishLatch = finishLatch;
-		countSent=0;
-		countCompleted=0;
-		countFailed=0;
+		_countSent=0;
+		_countCompleted=0;
+		_countFailed=0;
 	}
 	
 	private void copyAndSort(List<DiscountSchedule> toCopy){
 		for(DiscountSchedule discount : toCopy){
-			myDiscounts.addLast(discount);	
+			_myDiscounts.addLast(discount);	
 		}
 		Comparator<DiscountSchedule> c = new DiscountsComparator<DiscountSchedule>();
-		myDiscounts.sort(c);
+		_myDiscounts.sort(c);
 	}
 													
 	@SuppressWarnings("unchecked")
@@ -71,24 +71,24 @@ public class ManagementService extends MicroService {
 		 * --> send discount broadcast (if exist for current tick)
 		 */
 		subscribeBroadcast(TickBroadcast.class, v ->{
-			tick=v.getCurrent();
-			//LOGGER.info(getName() + ": Received TickBroadcast ");
-			while(!myDiscounts.isEmpty() && myDiscounts.getFirst().getTick()==tick){
-				NewDiscountBroadcast discount = new NewDiscountBroadcast(myDiscounts.getFirst().getType(), myDiscounts.getFirst().getDiscountedAmount());
-				int newDiscountAmount=discount.getDiscountedAmount();
+			_tick=v.getCurrent();
+			while(!_myDiscounts.isEmpty() && _myDiscounts.getFirst().getTick()==_tick){
+				NewDiscountBroadcast discount = new NewDiscountBroadcast(_myDiscounts.getFirst().getType(), _myDiscounts.getFirst().getDiscountedAmount());
+				int newDiscountAmount = discount.getDiscountedAmount();
 				synchronized (Store.getInstance()) {
 					ShoeStorageInfo shoe = Store.getInstance().getShoe(discount.getShoeType());
 					if(shoe != null){
 						int amountOnStorage = shoe.getAmountOnStorage();
-						if(amountOnStorage<newDiscountAmount){
+						if(amountOnStorage < newDiscountAmount){
 							newDiscountAmount=amountOnStorage;
 						}
-						Store.getInstance().getShoe(myDiscounts.getFirst().getType()).setDiscountAmount(newDiscountAmount);
-						sendBroadcast((Broadcast)discount);
-						MessageBusImpl.LOGGER.info(getName() + ": Sending NewDiscountBroadcast");
+						Store.getInstance().addDiscount(shoe.getType(), newDiscountAmount);
+						MessageBusImpl.LOGGER.info(getName() + ": Sending NewDiscountBroadcast on " + newDiscountAmount + " "  + shoe.getType());
 					}
+					
+					sendBroadcast(discount);
 				}
-				myDiscounts.removeFirst();
+				_myDiscounts.removeFirst();
 			}
 		});
 		
@@ -108,18 +108,18 @@ public class ManagementService extends MicroService {
 			MessageBusImpl.LOGGER.info(getName() + ": RestockRequest received for " + req.getShoeType());
 			RestockRequest request = (RestockRequest) req;
 			
-			if(myOrders.containsKey(request.getShoeType()) && myOrders.get(request.getShoeType()).intValue() > 0){
+			if(myOrdersCount.containsKey(request.getShoeType()) && myOrdersCount.get(request.getShoeType()).intValue() > 0){
 				_myOrders.get(request.getShoeType()).addLast(request);
-				int newAmount = myOrders.get(request.getShoeType()).intValue()-1;
-				myOrders.put(request.getShoeType(), newAmount);
+				int newAmount = myOrdersCount.get(request.getShoeType()).intValue()-1;
+				myOrdersCount.put(request.getShoeType(), newAmount);
 			}
-			else if(!myOrders.containsKey(request.getShoeType()) || myOrders.get(request.getShoeType()).intValue() == 0){
-				if(!myOrders.containsKey(request.getShoeType()))
+			else if(!myOrdersCount.containsKey(request.getShoeType()) || myOrdersCount.get(request.getShoeType()).intValue() == 0){
+				if(!myOrdersCount.containsKey(request.getShoeType()))
 					_myOrders.put(request.getShoeType(), new LinkedList<RestockRequest>());
 				
 				_myOrders.get(request.getShoeType()).addLast(request);
-				ManufacturingOrderRequest order = new ManufacturingOrderRequest(request.getShoeType(), (tick%5) +1 , tick);
-				myOrders.put(request.getShoeType(), new Integer(tick%5));
+				ManufacturingOrderRequest order = new ManufacturingOrderRequest(request.getShoeType(), (_tick%5) +1 , _tick);
+				myOrdersCount.put(request.getShoeType(), new Integer(_tick%5));
 				Sent();
 				boolean requestReceived = sendRequest(order, v -> {
 						Completed();
@@ -152,15 +152,15 @@ public class ManagementService extends MicroService {
 	
 	//TODO: delete this checking method
 	public LinkedList getDiscounts(){
-		return myDiscounts;
+		return _myDiscounts;
 	}
 	private synchronized void Sent(){
-		countSent++;
+		_countSent++;
 	}
 	private synchronized void Completed(){
-		countCompleted++;
+		_countCompleted++;
 	}
 	private synchronized void Failed(){
-		countFailed++;
+		_countFailed++;
 	}
 }

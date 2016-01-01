@@ -24,44 +24,44 @@ import bgu.spl.mics.Request;
 import bgu.spl.mics.impl.MessageBusImpl;
 
 public class WebsiteClientService extends MicroService{
-	private LinkedList<PurchaseSchedule> myPurchaseSchedule;
-	private Map<PurchaseOrderRequest,Boolean> myPurchaseWaiting;
-	private LinkedList<PurchaseSchedule> tmpPurchaseSchedule;
-	private Set<String> myWishList;
-	private int tick;
+	private LinkedList<PurchaseSchedule> _myPurchaseSchedule;
+	private Map<PurchaseOrderRequest,Boolean> _myPurchaseWaiting;
+	private LinkedList<PurchaseSchedule> _tmpPurchaseSchedule;
+	private Set<String> _myWishList;
+	private int _tick;
 	private CountDownLatch _startLatch;
 	private CountDownLatch _finishLatch;
-	public static int countSent;
-	public static int countCompleted;
-	public static int countFailed;
+	public static int _countSent;
+	public static int _countCompleted;
+	public static int _countFailed;
 	
 	public WebsiteClientService(String name, List<PurchaseSchedule> purchaseSchedule, Set<String> wishList, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
-		myPurchaseSchedule = new LinkedList<PurchaseSchedule>();
-		myPurchaseWaiting = new HashMap<PurchaseOrderRequest,Boolean>();
-		tmpPurchaseSchedule = new LinkedList<PurchaseSchedule>();
-		myWishList= new HashSet<String>();
+		_myPurchaseSchedule = new LinkedList<PurchaseSchedule>();
+		_myPurchaseWaiting = new HashMap<PurchaseOrderRequest,Boolean>();
+		_tmpPurchaseSchedule = new LinkedList<PurchaseSchedule>();
+		_myWishList= new HashSet<String>();
 		copyAndSort(purchaseSchedule);
 		copySet(wishList);
-		tick=0;
+		_tick=0;
 		_startLatch = startLatch;
 		_finishLatch = finishLatch;
-		countSent=0;
-		countCompleted=0;
-		countFailed=0;
+		_countSent=0;
+		_countCompleted=0;
+		_countFailed=0;
 	}
 	
 	private void copyAndSort(List<PurchaseSchedule> toCopy) {
 		for(PurchaseSchedule purchase : toCopy){
-			myPurchaseSchedule.addFirst(purchase);	
+			_myPurchaseSchedule.addFirst(purchase);	
 		}
 		Comparator<PurchaseSchedule> c = new PurchaseScheduleComparator();
-		myPurchaseSchedule.sort(c);
+		_myPurchaseSchedule.sort(c);
 	}
 	
 	private void copySet(Set<String> wishList){
 		for(String wish : wishList)
-			myWishList.add(wish);
+			_myWishList.add(wish);
 	}
 	
 	//TODO: what if customer receive null as receipt??
@@ -70,48 +70,49 @@ public class WebsiteClientService extends MicroService{
 	protected void initialize() {
 		
 		subscribeBroadcast(TickBroadcast.class, currentTick ->{
-			tick = currentTick.getCurrent();
-			while(!myPurchaseSchedule.isEmpty() && myPurchaseSchedule.getFirst().getTick() == tick){
+			_tick = currentTick.getCurrent();
+			while(!_myPurchaseSchedule.isEmpty() && _myPurchaseSchedule.getFirst().getTick() == _tick){
 				//TODO: move logger to shoeStoreRunner
 				MessageBusImpl.LOGGER.info(getName() + " sending PurchaseOrderRequest");
-				PurchaseOrderRequest request = new PurchaseOrderRequest(myPurchaseSchedule.getFirst().getType(), tick, false, getName());
-				myPurchaseSchedule.removeFirst();
+				PurchaseOrderRequest request = new PurchaseOrderRequest(_myPurchaseSchedule.getFirst().getType(), _tick, false, getName());
+				_myPurchaseSchedule.removeFirst();
 				Sent();
 				boolean requestReceived = sendRequest(request, v -> {
 					Completed();
-					myPurchaseWaiting.remove(request);
-					if(myWishList.contains(request.getShoeType()))
-						myWishList.remove(request.getShoeType());
-					if(myPurchaseSchedule.isEmpty() && myWishList.isEmpty() && myPurchaseWaiting.isEmpty()){
+					_myPurchaseWaiting.remove(request);
+					if(_myWishList.contains(request.getShoeType()))
+						_myWishList.remove(request.getShoeType());
+					if(_myPurchaseSchedule.isEmpty() && _myWishList.isEmpty() && _myPurchaseWaiting.isEmpty()){
 						terminate();
 						_finishLatch.countDown();
 					}
 				});
 				if(requestReceived)
-					myPurchaseWaiting.put(request, true);
+					_myPurchaseWaiting.put(request, true);
 				else
 					Failed();
 			}
 		});
 		
 		subscribeBroadcast(NewDiscountBroadcast.class, discount->{		
-			if(myWishList.contains(discount.getShoeType())){
+			if(_myWishList.contains(discount.getShoeType())){
 				MessageBusImpl.LOGGER.info(getName() + " received NewDiscountBroadcast" );
-				PurchaseOrderRequest request = new PurchaseOrderRequest(discount.getShoeType(), tick, true, getName());
+				PurchaseOrderRequest request = new PurchaseOrderRequest(discount.getShoeType(), _tick, true, getName());
 				//TODO: remove counter from here and seller 
 				Sent();
 				boolean requestReceived = sendRequest(request, v -> {
 					Completed();
-					myPurchaseWaiting.remove(request);
-					if(myPurchaseSchedule.isEmpty() && myWishList.isEmpty() && myPurchaseWaiting.isEmpty()){
+					_myPurchaseWaiting.remove(request);
+					if(_myPurchaseSchedule.isEmpty() && _myWishList.isEmpty() && _myPurchaseWaiting.isEmpty()){
 						terminate();
 						_finishLatch.countDown();
 					}
+					//TODO: Tick 20
 				});
 				MessageBusImpl.LOGGER.info(getName() + " sending PurchaseOrderRequest");
 				if(requestReceived){
-					myWishList.remove(discount.getShoeType());
-					myPurchaseWaiting.put(request, true);
+					_myWishList.remove(discount.getShoeType());
+					_myPurchaseWaiting.put(request, true);
 				}
 				else
 					Failed();
@@ -131,21 +132,21 @@ public class WebsiteClientService extends MicroService{
 	
 	//TODO: delete this method for checking
 	public HashSet<String> getWishList(){
-		return (HashSet<String>) myWishList;
+		return (HashSet<String>) _myWishList;
 	}
 	
 	//TODO: delete this method for checking
 	public LinkedList getPurchaseList(){
-		return myPurchaseSchedule;
+		return _myPurchaseSchedule;
 	}
 	
 	private synchronized void Sent(){
-		countSent++;
+		_countSent++;
 	}
 	private synchronized void Completed(){
-		countCompleted++;
+		_countCompleted++;
 	}
 	private synchronized void Failed(){
-		countFailed++;
+		_countFailed++;
 	}
 }

@@ -13,16 +13,16 @@ import bgu.spl.mics.impl.MessageBusImpl;
 
 public class ShoeFactoryService extends MicroService{
 
-	private int tick;
+	private int _tick;
 	// list to keep track of products' manufacturing
-	private LinkedList<ManufacturingOrderRequest> orderRequests;
+	private LinkedList<ManufacturingOrderRequest> _orderRequests;
 	private CountDownLatch _startLatch;
 	private CountDownLatch _finishLatch;
 
 	public ShoeFactoryService(String name, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
-		tick=0;
-		orderRequests = new LinkedList<ManufacturingOrderRequest>();
+		_tick=0;
+		_orderRequests = new LinkedList<ManufacturingOrderRequest>();
 		_startLatch = startLatch;
 		_finishLatch = finishLatch;
 	}
@@ -39,17 +39,17 @@ public class ShoeFactoryService extends MicroService{
 		 * 		3. remove from my products
 		 */
 		subscribeBroadcast(TickBroadcast.class, v-> {
-			tick=v.getCurrent();
-			if(!orderRequests.isEmpty()){
-				ManufacturingOrderRequest orderRequest = orderRequests.getFirst();
+			_tick=v.getCurrent();
+			if(!_orderRequests.isEmpty()){
+				ManufacturingOrderRequest orderRequest = _orderRequests.getFirst();
 				if(orderRequest.getTmpAmount()>0){
 					orderRequest.setTmpAmount(orderRequest.getTmpAmount()-1);
 				}
 				else{
-					MessageBusImpl.LOGGER.info(getName() + ": Finished ManufacturingOrderRequest in currentTick " + tick);
-					Receipt receipt = new Receipt(getName(), "Store", orderRequest.getShoeType(), false, tick, orderRequest.getTick(), orderRequest.getAmount());
+					MessageBusImpl.LOGGER.info(getName() + ": Finished ManufacturingOrderRequest in currentTick " + _tick);
+					Receipt receipt = new Receipt(getName(), "Store", orderRequest.getShoeType(), false, _tick, orderRequest.getTick(), orderRequest.getAmount());
 					complete(orderRequest, receipt);
-					orderRequests.removeFirst();
+					_orderRequests.removeFirst();
 				}
 			}
 		});
@@ -66,7 +66,7 @@ public class ShoeFactoryService extends MicroService{
 		 */
 		subscribeRequest(ManufacturingOrderRequest.class, v-> {
 			MessageBusImpl.LOGGER.info(getName() + ": Received ManufacturingOrderRequest for " + v.getAmount() + " "+ v.getShoeType());
-			orderRequests.addLast(v);
+			_orderRequests.addLast(v);
 		});
 		
 		_startLatch.countDown();
