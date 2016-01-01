@@ -150,7 +150,6 @@ public class MessageBusImplTest {
 			MessageBusImpl.getInstance().sendBroadcast(discount);
 			assertTrue(MessageBusImpl.getInstance().awaitMessage(m) == discount);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

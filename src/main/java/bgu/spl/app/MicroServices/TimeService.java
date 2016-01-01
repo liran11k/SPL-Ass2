@@ -57,7 +57,7 @@ public class TimeService extends MicroService{
 							try {
 								Thread.sleep(1000);
 							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
+								MessageBusImpl.LOGGER.warning("Timer safety sleep (in the end) interrupted.");
 								e.printStackTrace();
 							}
 							sendBroadcast(new TerminationBroadcast(tick));

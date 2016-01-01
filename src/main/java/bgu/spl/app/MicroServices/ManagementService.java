@@ -127,7 +127,6 @@ public class ManagementService extends MicroService {
 						Store.getInstance().file(receipt);
 						int itemsReserved = 0;
 						int shoesCreated = receipt.getAmount();
-						//TODO: fix! and prevent seller who received completed to take from store
 						while( !_myOrders.get(receipt.getShoeType()).isEmpty() && shoesCreated > 0){
 							complete(_myOrders.get(request.getShoeType()).getFirst(), true);
 							_myOrders.get(receipt.getShoeType()).removeFirst();
@@ -150,7 +149,10 @@ public class ManagementService extends MicroService {
 		_startLatch.countDown();
 	}
 	
-	//TODO: delete this checking method
+	/**
+	 * Auxiliary method to check json read file
+	 * @return discount list
+	 */
 	public LinkedList getDiscounts(){
 		return _myDiscounts;
 	}

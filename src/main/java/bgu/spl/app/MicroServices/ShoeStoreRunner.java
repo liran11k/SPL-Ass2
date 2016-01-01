@@ -54,7 +54,7 @@ public class ShoeStoreRunner {
 		 * 5. Print all store's receipts 
 		 */
 		
-		jsonLoad();
+		jsonLoad(args[0]);
 		//testJsonLoad();
 		
 		
@@ -78,7 +78,6 @@ public class ShoeStoreRunner {
 		 */
 		_timer = new TimeService(_speed, _duration, _startLatch, _finishLatch);
 		ExecutorService executor = Executors.newFixedThreadPool(_numOfServices+1);
-		//TODO: check with variety of threads
 		
 		executor.execute(_timer);
 		executor.execute(_manager);
@@ -112,9 +111,10 @@ public class ShoeStoreRunner {
 		MessageBusImpl.LOGGER.info("Manufacture sent: " + ManagementService._countSent);
 		MessageBusImpl.LOGGER.info("Manufacture completed: " + ManagementService._countCompleted);
 		MessageBusImpl.LOGGER.info("Manufacture failed: " + ManagementService._countFailed);
+	
 	}
 	
-	private static void jsonLoad(){
+	private static void jsonLoad(String path){
 		
 		JSONParser parser = new JSONParser();
 		
@@ -122,7 +122,7 @@ public class ShoeStoreRunner {
 			/**
 			 * mainObj: main object to iterate through the json file
 			 */
-			Object obj = parser.parse(new FileReader("example2.txt"));
+			Object obj = parser.parse(new FileReader(path));
 			JSONObject mainObject= (JSONObject) obj;
 			
 
@@ -141,7 +141,6 @@ public class ShoeStoreRunner {
 				int amount = (int)(long) tmpObject.get("amount");
 				shoes[i] = new ShoeStorageInfo(shoeName,amount);
 			}
-			// TODO: Initialize the store with this storage
 			Store.getInstance().load(shoes);
 			
 			
@@ -226,19 +225,22 @@ public class ShoeStoreRunner {
 			for(int i=0; i<_numOfSellers; i++){
 				_sellers[i] = new SellingService("seller "+(i+1), _startLatch, _finishLatch);
 			}
+		
 			
 				
 					
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			MessageBusImpl.LOGGER.warning("File not found! failed to read json file.");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			MessageBusImpl.LOGGER.warning("Input Outout execption! failed to read json file.");
 			e.printStackTrace();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			MessageBusImpl.LOGGER.warning("Failed to parse json file.");
 			e.printStackTrace();
 		}
+		
+		
 	}
 	
 	private static void testJsonLoad(){
@@ -267,5 +269,7 @@ public class ShoeStoreRunner {
 			
 		}
 	
+		
+		
 	}
 }

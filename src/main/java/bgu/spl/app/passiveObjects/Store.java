@@ -53,7 +53,7 @@ public class Store{
 		return result;
 	}
 	
-	public synchronized void add(String shoeType, int amount){
+	public void add(String shoeType, int amount){
 		if(myStorage.containsKey(shoeType)){
 			ShoeStorageInfo tmp = myStorage.get(shoeType);
 			tmp.setAmount(tmp.getAmountOnStorage()+amount);
@@ -64,14 +64,14 @@ public class Store{
 		}
 	}
 	
-	public synchronized void remove(String shoeType){
+	public void remove(String shoeType){
 		ShoeStorageInfo tmp = myStorage.get(shoeType);
 		tmp.setAmount(tmp.getAmountOnStorage()-1);
 		if(tmp.getDiscountedAmount()>0)
 			tmp.setDiscountAmount(tmp.getDiscountedAmount()-1);			
 	}
 	
-	public synchronized void addDiscount(String shoeType, int amount){
+	public void addDiscount(String shoeType, int amount){
 		if(myStorage.containsKey(shoeType)){
 			ShoeStorageInfo tmp = myStorage.get(shoeType);
 			if(tmp.getDiscountedAmount() == 0)

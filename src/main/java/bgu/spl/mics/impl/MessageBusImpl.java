@@ -129,7 +129,7 @@ public class MessageBusImpl implements MessageBus{
     }
 
     @Override
-    public synchronized void register(MicroService m) {
+    public void register(MicroService m) {
     	LOGGER.info(m.getName() + " registered to MessageBus");
     	_micro_services.put(m, new ArrayList<>());
         _micro_service_request_types.put(m, new ArrayList<>());

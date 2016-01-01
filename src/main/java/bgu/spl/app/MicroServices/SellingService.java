@@ -58,8 +58,8 @@ public class SellingService extends MicroService{
 	}
 	@SuppressWarnings("unchecked")
 	private void Buy(Request req){
+		PurchaseOrderRequest purchaseRequest = (PurchaseOrderRequest) req;
 		synchronized (Store.getInstance()) {
-			PurchaseOrderRequest purchaseRequest = (PurchaseOrderRequest) req;
 			ShoeStorageInfo shoe = Store.getInstance().getShoe(purchaseRequest.getShoeType());
 			BuyResult requestStatus = Store.getInstance().take(purchaseRequest.getShoeType(), purchaseRequest.onlyOnDiscount());
 			Receipt receipt;
@@ -104,7 +104,6 @@ public class SellingService extends MicroService{
 					MessageBusImpl.LOGGER.info(getName() + ": unfortunatly the shoe is not on discount 😡");
 					complete(purchaseRequest,null);
 				}
-
 		}
 				
 	}

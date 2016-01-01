@@ -64,7 +64,6 @@ public class WebsiteClientService extends MicroService{
 			_myWishList.add(wish);
 	}
 	
-	//TODO: what if customer receive null as receipt??
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void initialize() {
@@ -72,7 +71,6 @@ public class WebsiteClientService extends MicroService{
 		subscribeBroadcast(TickBroadcast.class, currentTick ->{
 			_tick = currentTick.getCurrent();
 			while(!_myPurchaseSchedule.isEmpty() && _myPurchaseSchedule.getFirst().getTick() == _tick){
-				//TODO: move logger to shoeStoreRunner
 				MessageBusImpl.LOGGER.info(getName() + " sending PurchaseOrderRequest");
 				PurchaseOrderRequest request = new PurchaseOrderRequest(_myPurchaseSchedule.getFirst().getType(), _tick, false, getName());
 				_myPurchaseSchedule.removeFirst();
@@ -98,7 +96,6 @@ public class WebsiteClientService extends MicroService{
 			if(_myWishList.contains(discount.getShoeType())){
 				MessageBusImpl.LOGGER.info(getName() + " received NewDiscountBroadcast" );
 				PurchaseOrderRequest request = new PurchaseOrderRequest(discount.getShoeType(), _tick, true, getName());
-				//TODO: remove counter from here and seller 
 				Sent();
 				boolean requestReceived = sendRequest(request, v -> {
 					Completed();
@@ -107,7 +104,6 @@ public class WebsiteClientService extends MicroService{
 						terminate();
 						_finishLatch.countDown();
 					}
-					//TODO: Tick 20
 				});
 				MessageBusImpl.LOGGER.info(getName() + " sending PurchaseOrderRequest");
 				if(requestReceived){
@@ -130,12 +126,17 @@ public class WebsiteClientService extends MicroService{
 		MessageBusImpl.LOGGER.info(getName() + " finished initialization");
 	}
 	
-	//TODO: delete this method for checking
+	/**
+	 * Auxiliary method to check json read file
+	 * @return wishList
+	 */
 	public HashSet<String> getWishList(){
 		return (HashSet<String>) _myWishList;
 	}
-	
-	//TODO: delete this method for checking
+	/**
+	 * Auxiliary method to check json read file
+	 * @return purchases
+	 */
 	public LinkedList getPurchaseList(){
 		return _myPurchaseSchedule;
 	}
