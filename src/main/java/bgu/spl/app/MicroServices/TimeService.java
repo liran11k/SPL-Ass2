@@ -3,6 +3,7 @@ package bgu.spl.app.MicroServices;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
+import java.util.logging.Logger;
 
 import javax.print.attribute.standard.Finishings;
 
@@ -18,6 +19,7 @@ public class TimeService extends MicroService{
 	private Timer time;
 	private CountDownLatch _startLatch;
 	private CountDownLatch _finishLatch;
+	private final Logger LOGGER = Logger.getLogger(TimeService.class.getName());
 	
 	public TimeService(int speed, int duration, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super("Timer");
@@ -51,8 +53,16 @@ public class TimeService extends MicroService{
 						sendBroadcast(new TickBroadcast(tick));
 						MessageBusImpl.getInstance().LOGGER.info("Time is == " + tick);
 						if(duration == 0){
-							sendBroadcast(new TerminationBroadcast(tick));
+							LOGGER.info("Timer tick duration reached. Sending termination broadcast");
 							time.cancel();
+							MessageBusImpl.LOGGER.info("Timer is waiting a safety time before terminating itself and other services..");
+							try {
+								Thread.sleep(5000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							sendBroadcast(new TerminationBroadcast(tick));
 							terminate();
 							_finishLatch.countDown();
 						}

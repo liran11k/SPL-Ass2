@@ -113,7 +113,6 @@ receiving {@code r} completes
      */
     protected final <T> boolean sendRequest(Request<T> r, Callback<T> onComplete) {
         CompleteCallbackMap.put(r, onComplete);
-        MessageBusImpl.LOGGER.info(getName() + " sending " + r.getClass());
         return MessageBusImpl.getInstance().sendRequest(r,this);
     }
 
@@ -123,7 +122,6 @@ receiving {@code r} completes
      * @param b the broadcast message to send
      */
     protected final void sendBroadcast(Broadcast b) {
-    	MessageBusImpl.LOGGER.info(getName() + " sending " + b.getClass());
     	MessageBusImpl.getInstance().sendBroadcast(b);
     }
 
@@ -181,7 +179,7 @@ receiving {@code r} completes
                       }
                 	  else if(RequestCompleted.class.isAssignableFrom(message.getClass())){
                 		  Callback<Object> c1 = (Callback<Object>) CompleteCallbackMap.get(((RequestCompleted)message).getCompletedRequest());
-                		  c1.call(((RequestCompleted)message).getResult());
+                		  c1.call(((RequestCompleted)message));
                 	  }
                   }
               }

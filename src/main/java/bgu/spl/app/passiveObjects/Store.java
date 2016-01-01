@@ -1,9 +1,13 @@
 package bgu.spl.app.passiveObjects;
 
+import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Set;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 import bgu.spl.mics.MicroService;
 import bgu.spl.mics.Request;
@@ -11,7 +15,7 @@ import bgu.spl.mics.impl.MessageBusImpl;
 
 public class Store{
 	private MessageBusImpl instance;
-	private Map<String,ShoeStorageInfo> myStorage;
+	private Map<String,ShoeStorageInfo> myStorage = null;
 	private ArrayList<Receipt> myReceipts;
 
 	private static class StoreHolder{
@@ -20,6 +24,7 @@ public class Store{
 	
 	private Store(){
 		myReceipts = new ArrayList<Receipt>();
+		myStorage = new HashMap<String, ShoeStorageInfo>();
 	}
 	
 	public static Store getInstance(){
@@ -42,15 +47,15 @@ public class Store{
 	 * @param onlyDiscount
 	 * @return
 	 */
-	public synchronized BuyResult take(String shoeType, boolean onlyDiscount){
+	public BuyResult take(String shoeType, boolean onlyDiscount){
 		ShoeStorageInfo shoe = myStorage.get(shoeType);
 		BuyResult result = BuyResult.getStatus(shoe,onlyDiscount);
 		return result;
 	}
 	
-	public void add(String shoeType, int amount){
+	public synchronized void add(String shoeType, int amount){
 		if(myStorage.containsKey(shoeType)){
-			ShoeStorageInfo tmp = myStorage.get(shoeType); 
+			ShoeStorageInfo tmp = myStorage.get(shoeType);
 			tmp.setAmount(tmp.getAmountOnStorage()+amount);
 		}
 		else{
@@ -59,7 +64,7 @@ public class Store{
 		}
 	}
 	
-	public void remove(String shoeType){
+	public synchronized void remove(String shoeType){
 		ShoeStorageInfo tmp = myStorage.get(shoeType);
 		tmp.setAmount(tmp.getAmountOnStorage()-1);
 		if(tmp.getDiscountedAmount()>0)
@@ -73,7 +78,7 @@ public class Store{
 		}
 	}
 	
-	public void file(Receipt receipt){
+	public synchronized void file(Receipt receipt){
 		myReceipts.add(receipt);
 		MessageBusImpl.LOGGER.info("Receipt created for ShoeType: " + receipt.getShoeType() + " (" + receipt.getAmount() + ") " + "Buyer: " + receipt.getCustomer());
 	}
@@ -82,11 +87,44 @@ public class Store{
 		for (Map.Entry<String, ShoeStorageInfo> shoe : myStorage.entrySet())
 			shoe.getValue().print();
 		System.err.println();
-		for (Receipt receipt : myReceipts)
-			receipt.print();
+		int i = 1;
+		for (Receipt receipt : myReceipts){
+			receipt.print(i);
+			i++;
+		}
 	}
 	
-	public ShoeStorageInfo getShoe(String shoeType){
+	public synchronized ShoeStorageInfo getShoe(String shoeType){
 		return myStorage.get(shoeType);
 	}
+	
+	// -----Getters to test Class via JUnit
+
+	public Set<String> getStorageNames(){
+		return myStorage.keySet();
+	}
+	
+	public ShoeStorageInfo[] getStorage(){
+		ShoeStorageInfo[] storage = new ShoeStorageInfo[myStorage.size()];
+		int i=0;
+		for(Map.Entry<String, ShoeStorageInfo> entry : myStorage.entrySet()){
+			storage[i] = entry.getValue();
+			i++;
+		}
+		return storage;
+	}
+	
+	public ArrayList<Receipt> getReceipts(){
+		return myReceipts;
+	}
+
+	public int getStorageSize() {
+		return myStorage.size();
+	}
+
+	public void initialize() {
+		myStorage = new HashMap<String, ShoeStorageInfo>();
+		myReceipts = new ArrayList<Receipt>();
+	}
+	
 }

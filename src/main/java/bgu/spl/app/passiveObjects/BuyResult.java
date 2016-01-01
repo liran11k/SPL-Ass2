@@ -8,8 +8,8 @@ public enum BuyResult{
 	
 	public static BuyResult getStatus(ShoeStorageInfo shoe, boolean onlyDiscount){
 		BuyResult ans = null;
-		if(shoe == null)
-			ans=BuyResult.NOT_IN_STOCK;
+		if(shoe == null || shoe.getAmountOnStorage() == 0)
+			ans=NOT_IN_STOCK;
 		else if(shoe.getAmountOnStorage() > 0){ 
 				if(shoe.getDiscountedAmount() == 0){
 					if(onlyDiscount)
@@ -17,7 +17,7 @@ public enum BuyResult{
 					else
 						ans=REGULAR_PRICE;
 				}
-				else if(shoe.getDiscountedAmount()>0)
+				else if(shoe.getDiscountedAmount() > 0)
 					ans=DISCOUNTED_PRICE;
 		}
 		return ans;

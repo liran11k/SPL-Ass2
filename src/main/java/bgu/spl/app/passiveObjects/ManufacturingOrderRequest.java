@@ -36,8 +36,8 @@ public class ManufacturingOrderRequest implements Request {
 		return tmpAmount;
 	}
 	
-	public void setTmpAmount(int tmpAmount){
-		this.tmpAmount = tmpAmount;
+	public void setTmpAmount(int newTmpAmount){
+		this.tmpAmount = newTmpAmount;
 	}
 	public void setResult(Receipt result) {
 		this.result = result;

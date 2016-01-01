@@ -13,6 +13,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Logger;
 
+import bgu.spl.app.passiveObjects.ShoeStorageInfo;
 import bgu.spl.mics.Broadcast;
 import bgu.spl.mics.Message;
 import bgu.spl.mics.MessageBus;
@@ -25,7 +26,7 @@ public class MessageBusImpl implements MessageBus{
 	private Map<MicroService,ArrayList> _micro_services; //MicroService & Queue
 	private Map<Class <? extends Request>,ArrayList> _request_subscribers_lists; //Request and it's subscribers
 	private Map<Class <? extends Broadcast>,ArrayList> _broadcast_subscribers_lists; //Broadcast and it's subscribers
-	private Map<MicroService, ArrayList> _micro_service_request_types;
+	private Map<MicroService, ArrayList> _micro_service_request_types; 
 	private Map<MicroService, ArrayList> _micro_service_broadcast_types;
 	
     //Auxiliary map to get request & requester more efficiently
@@ -179,5 +180,61 @@ public class MessageBusImpl implements MessageBus{
     	}
     	_micro_service_broadcast_types.remove(m);
     }
+    
+    
+    // -----Getters to test Class via JUnit
+    
+    public ArrayList[] getQueues(){
+    	ArrayList[] queues = new ArrayList[_micro_services.size()];
+		int i=0;
+		for(Map.Entry<MicroService, ArrayList> entry : _micro_services.entrySet()){
+			queues[i] = entry.getValue();
+			i++;
+		}
+		return queues;
+	}
+    
+    public MicroService[] getMicroServices(){
+    	MicroService[] services = new MicroService[_micro_services.size()];
+		int i=0;
+		for(Map.Entry<MicroService, ArrayList> entry : _micro_services.entrySet()){
+			services[i] = entry.getKey();
+			i++;
+		}
+		return services;
+	}
+    
+    public Object[] getBroadcastSubscription(MicroService m){
+    	Object[] subscriptions = new Object[_micro_service_broadcast_types.get(m).size()];
+    	int i=0;
+    	while(i< _micro_service_broadcast_types.get(m).size()){
+    		subscriptions[i] = _micro_service_broadcast_types.get(m).get(i);
+    		i++;
+    	}
+    	return subscriptions;
+	}
+    
+    public Object[] getRequestSubscription(MicroService m){
+    	Object[] subscriptions = new Object[_micro_service_request_types.get(m).size()];
+    	int i=0;
+    	while(i< _micro_service_request_types.get(m).size()){
+    		subscriptions[i] = _micro_service_request_types.get(m).get(i);
+    		i++;
+    	}
+    	return subscriptions;
+	}
+    
+    
+    
+    public void initialize(){
+    	_micro_services.clear();
+    	_request_and_requester.clear();
+    	_broadcast_subscribers_lists.clear();
+    	_micro_service_request_types.clear();
+    	_micro_service_broadcast_types.clear();
+    	_request_subscribers_lists.clear();
+    }
 
+	
+    
 }

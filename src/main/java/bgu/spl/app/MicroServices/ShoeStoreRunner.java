@@ -102,6 +102,16 @@ public class ShoeStoreRunner {
 		Store.getInstance().print();
 		
 		MessageBusImpl.LOGGER.info("Program terminated.");
+		
+		MessageBusImpl.LOGGER.info("Purachsed sent: " + WebsiteClientService.countSent);
+		MessageBusImpl.LOGGER.info("Purachsed completed: " + WebsiteClientService.countCompleted);
+		MessageBusImpl.LOGGER.info("Purachsed failed: " + WebsiteClientService.countFailed);
+		MessageBusImpl.LOGGER.info("Restock sent: " + SellingService.countSent);
+		MessageBusImpl.LOGGER.info("Restock completed: " + SellingService.countCompleted);
+		MessageBusImpl.LOGGER.info("Restock failed: " + SellingService.countFailed);
+		MessageBusImpl.LOGGER.info("Manufacture sent: " + ManagementService.countSent);
+		MessageBusImpl.LOGGER.info("Manufacture completed: " + ManagementService.countCompleted);
+		MessageBusImpl.LOGGER.info("Manufacture failed: " + ManagementService.countFailed);
 	}
 	
 	private static void jsonLoad(){

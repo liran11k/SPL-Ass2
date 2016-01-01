@@ -33,9 +33,9 @@ public class ShoeStorageInfo {
 	public void setAmount(int newAmount){
 		this.amountOnStorage=newAmount;
 	}
-	public void setDiscountAmount(int newDiscoundAmount)
-	{
-		this.discountedAmount=newDiscoundAmount;
+	
+	public void setDiscountAmount(int newDiscoundAmount){
+		this.discountedAmount = discountedAmount + newDiscoundAmount;
 	}
 	
 	public void print(){

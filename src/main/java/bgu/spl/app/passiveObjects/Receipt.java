@@ -22,8 +22,8 @@ public class Receipt {
 		this.amountSold=amountSold;
 	}
 	
-	public void print(){
-		System.out.println("Receipt details >>");
+	public void print(int i){
+		System.out.println("Receipt #" + i + ">>");
 		System.out.println("	seller: " + seller);
 		System.out.println("	Costumer: " + customer);
 		System.out.println("	ShoeType: " + shoeType);
