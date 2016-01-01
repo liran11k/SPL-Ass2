@@ -42,6 +42,10 @@ public class TimeService extends MicroService{
 		}
 		MessageBusImpl.LOGGER.info("All services done initializing --> Timer starts!");
 		
+		subscribeBroadcast(TerminationBroadcast.class, v -> {
+			terminate();
+		});
+		
 		time.schedule(
 				new TimerTask(){
 					@Override
@@ -61,7 +65,6 @@ public class TimeService extends MicroService{
 								e.printStackTrace();
 							}
 							sendBroadcast(new TerminationBroadcast(tick));
-							terminate();
 							_finishLatch.countDown();
 						}
 					}	

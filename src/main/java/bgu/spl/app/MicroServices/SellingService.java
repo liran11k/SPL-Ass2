@@ -77,7 +77,7 @@ public class SellingService extends MicroService{
 					RestockRequest restockRequest = new RestockRequest(purchaseRequest.getShoeType(),1);
 					Sent();
 					boolean requestReceived = sendRequest(restockRequest, v ->{
-						if((boolean) ((RequestCompleted) v).getResult()){
+						if((boolean) v){
 							Completed();
 							Receipt delayedReceipt = new Receipt(getName(), purchaseRequest.getCustomer(), purchaseRequest.getShoeType(), false, _tick, purchaseRequest.getTick(), 1);
 							Store.getInstance().file(delayedReceipt);

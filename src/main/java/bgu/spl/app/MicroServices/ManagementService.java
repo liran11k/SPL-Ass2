@@ -123,7 +123,7 @@ public class ManagementService extends MicroService {
 				Sent();
 				boolean requestReceived = sendRequest(order, v -> {
 						Completed();
-						Receipt receipt = (Receipt) ((RequestCompleted) v).getResult();
+						Receipt receipt = (Receipt) v;
 						Store.getInstance().file(receipt);
 						int itemsReserved = 0;
 						int shoesCreated = receipt.getAmount();

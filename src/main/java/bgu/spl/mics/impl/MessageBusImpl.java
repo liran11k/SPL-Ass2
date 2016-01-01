@@ -139,14 +139,16 @@ public class MessageBusImpl implements MessageBus{
 
     @Override
     public synchronized void unregister(MicroService m) {
-        unsubscribe(m);
+    	unsubscribe(m);
         _micro_services.remove(m);
         LOGGER.info(m.getName() + " unregistered from MessageBus");
     }
 
+	//TODO: fix timer get stuck here cause has no messages
     @Override
     public synchronized Message awaitMessage(MicroService m) throws InterruptedException {
     	Message message = null;
+
     	while(_micro_services.get(m).isEmpty())
     		wait();
     	message = (Message) _micro_services.get(m).get(0);
@@ -162,8 +164,7 @@ public class MessageBusImpl implements MessageBus{
      */
     public void unsubscribe(MicroService m){
     	ArrayList list = _micro_service_request_types.get(m);
-    	while(!list.isEmpty())
-    	{
+    	while(!list.isEmpty()){
     		Class<? extends Request> type;
 			type = (Class<? extends Request>) list.get(0);
 			list.remove(0);
@@ -171,8 +172,7 @@ public class MessageBusImpl implements MessageBus{
     	}
     	_micro_service_request_types.remove(m);
     	list = _micro_service_broadcast_types.get(m);
-    	while(!list.isEmpty())
-    	{
+    	while(!list.isEmpty()){
     		Class<? extends Broadcast> type;
 			type = (Class<? extends Broadcast>) list.get(0);
 			list.remove(0);

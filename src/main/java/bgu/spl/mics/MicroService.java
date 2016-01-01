@@ -179,7 +179,7 @@ receiving {@code r} completes
                       }
                 	  else if(RequestCompleted.class.isAssignableFrom(message.getClass())){
                 		  Callback<Object> c1 = (Callback<Object>) CompleteCallbackMap.get(((RequestCompleted)message).getCompletedRequest());
-                		  c1.call(((RequestCompleted)message));
+                		  c1.call(((RequestCompleted)message).getResult());
                 	  }
                   }
               }

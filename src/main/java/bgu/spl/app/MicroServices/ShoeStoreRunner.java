@@ -53,7 +53,10 @@ public class ShoeStoreRunner {
 		 * 4. Terminate gracefully all micro services
 		 * 5. Print all store's receipts 
 		 */
-		
+		if(args == null || args.length < 1){
+			MessageBusImpl.LOGGER.severe("Missing input file");
+			return;
+		}
 		jsonLoad(args[0]);
 		//testJsonLoad();
 		
@@ -77,6 +80,7 @@ public class ShoeStoreRunner {
 		 * Execute all threads
 		 */
 		_timer = new TimeService(_speed, _duration, _startLatch, _finishLatch);
+		
 		ExecutorService executor = Executors.newFixedThreadPool(_numOfServices+1);
 		
 		executor.execute(_timer);
@@ -89,7 +93,7 @@ public class ShoeStoreRunner {
 			executor.execute(_clients[i]);
 		
 		executor.shutdown();
-			
+
 		// Latch object to wait for all services to finish
 		// before printing the store's receipt
 		try {
@@ -111,7 +115,7 @@ public class ShoeStoreRunner {
 		MessageBusImpl.LOGGER.info("Manufacture sent: " + ManagementService._countSent);
 		MessageBusImpl.LOGGER.info("Manufacture completed: " + ManagementService._countCompleted);
 		MessageBusImpl.LOGGER.info("Manufacture failed: " + ManagementService._countFailed);
-	
+		
 	}
 	
 	private static void jsonLoad(String path){
@@ -230,13 +234,13 @@ public class ShoeStoreRunner {
 				
 					
 		} catch (FileNotFoundException e) {
-			MessageBusImpl.LOGGER.warning("File not found! failed to read json file.");
+			MessageBusImpl.LOGGER.severe("File not found! failed to read json file.");
 			e.printStackTrace();
 		} catch (IOException e) {
-			MessageBusImpl.LOGGER.warning("Input Outout execption! failed to read json file.");
+			MessageBusImpl.LOGGER.severe("Input Outout execption! failed to read json file.");
 			e.printStackTrace();
 		} catch (ParseException e) {
-			MessageBusImpl.LOGGER.warning("Failed to parse json file.");
+			MessageBusImpl.LOGGER.severe("Failed to parse json file.");
 			e.printStackTrace();
 		}
 		
