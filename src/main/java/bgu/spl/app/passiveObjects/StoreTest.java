@@ -27,7 +27,7 @@ public class StoreTest {
 	
 	@Test
 	public void testEmptyReceipts() {
-		assertEquals(0, (double)Store.getInstance().getReceipts().size(),0);
+		assertEquals(0, (double)Store.getInstance().getReceipts().length,0);
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ public class StoreTest {
 	public void testReceiptFile() {
 		Receipt receipt = new Receipt("seller", "customer", "shoe", true, 0, 1, 1);
 		Store.getInstance().file(receipt);
-		assertEquals(receipt,Store.getInstance().getReceipts().get(0));
+		assertEquals(receipt,Store.getInstance().getReceipts()[0]);
 	}
 	
 	@Test
