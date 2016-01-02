@@ -20,6 +20,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import bgu.spl.app.passiveObjects.BuyResult;
 import bgu.spl.app.passiveObjects.DiscountSchedule;
 import bgu.spl.app.passiveObjects.PurchaseSchedule;
 import bgu.spl.app.passiveObjects.ShoeStorageInfo;
@@ -114,7 +115,12 @@ public class ShoeStoreRunner {
 		MessageBusImpl.LOGGER.info("Restock failed: " + SellingService._countFailed);
 		MessageBusImpl.LOGGER.info("Manufacture sent: " + ManagementService._countSent);
 		MessageBusImpl.LOGGER.info("Manufacture completed: " + ManagementService._countCompleted);
-		MessageBusImpl.LOGGER.info("Manufacture failed: " + ManagementService._countFailed);
+		MessageBusImpl.LOGGER.info("Shoes removed === " + Store.counter);
+		MessageBusImpl.LOGGER.info("Shoes notInStock === " + BuyResult.notInStock);
+		MessageBusImpl.LOGGER.info("Shoes notOnDiscount === " + BuyResult.notOnDiscount);
+		MessageBusImpl.LOGGER.info("Shoes Discounted === " + BuyResult.Discounted);
+		MessageBusImpl.LOGGER.info("Shoes Regular === " + BuyResult.regular);
+		
 		
 	}
 	

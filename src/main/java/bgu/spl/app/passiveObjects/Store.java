@@ -18,6 +18,7 @@ import bgu.spl.mics.impl.MessageBusImpl;
 public class Store{
 	private Map<String,ShoeStorageInfo> _myStorage = null;
 	private LinkedBlockingQueue<Receipt> _myReceipts;
+	public static int counter;
 
 	private static class StoreHolder{
 		private static Store instance = new Store();
@@ -25,7 +26,8 @@ public class Store{
 	
 	private Store(){
 		_myReceipts = new LinkedBlockingQueue<Receipt>();
-		_myStorage = new ConcurrentHashMap<String, ShoeStorageInfo>();
+		_myStorage = new HashMap<String, ShoeStorageInfo>();
+		counter=0;
 	}
 	
 	public static Store getInstance(){
@@ -43,19 +45,15 @@ public class Store{
 	}
 	
 	/**
-	 * 
-	 * @param shoeType
-	 * @param onlyDiscount
+	 * Remove ordoesn't remove the shoe from the store according to its BuyResult 
+	 * @param shoeType to check its BuyResult
+	 * @param onlyDiscount customer's choice to buy with or w/o discount
 	 * @return
 	 */
-	public BuyResult take(String shoeType, boolean onlyDiscount){
+	public synchronized BuyResult take(String shoeType, boolean onlyDiscount){
 		BuyResult result = BuyResult.getStatus(_myStorage.get(shoeType),onlyDiscount);
-		if(result == BuyResult.DISCOUNTED_PRICE){
+		if(result == BuyResult.DISCOUNTED_PRICE | result == BuyResult.REGULAR_PRICE)
 			remove(shoeType);
-		}
-		else if(result == BuyResult.REGULAR_PRICE){
-			remove(shoeType);
-		}
 		return result;
 	}
 	
@@ -70,11 +68,13 @@ public class Store{
 		}
 	}
 	
-	public synchronized void remove(String shoeType){
+	public void remove(String shoeType){
+		//TODO: remove counter
+		counter++;
 		ShoeStorageInfo tmp = _myStorage.get(shoeType);
 		tmp.setAmount(tmp.getAmountOnStorage()-1);
 		if(tmp.getDiscountedAmount()>0)
-			tmp.setDiscountAmount(tmp.getDiscountedAmount()-1);			
+			tmp.setDiscountAmount(tmp.getDiscountedAmount()-1);
 	}
 	
 	public synchronized void addDiscount(String shoeType, int amount){

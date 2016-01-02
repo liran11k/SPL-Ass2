@@ -1,708 +1,716 @@
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Group-Buyers2 registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Shraga registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Reuven registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Yosef registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: seller 3 registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Bruria registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: seller 1 registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Timer registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.TimeService initialize
-INFO: Timer is waiting for services..
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Simha registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Ilanit registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Bracha registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: factory 1 registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: manager registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
 INFO: factory 2 registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Nurith registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
-INFO: Shimshon registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Yosef registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Simha registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: manager registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: seller 3 registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Group-Buyers2 registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Bracha registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Timer registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Reuven registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Shraga registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
 INFO: seller 2 registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl register
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: factory 1 registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
 INFO: Group-Buyers1 registered to MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Reuven finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Ilanit finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Group-Buyers1 finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Yosef finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.ShoeFactoryService initialize
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Shimshon registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Bruria registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: seller 1 registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Nurith registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.mics.impl.MessageBusImpl register
+INFO: Ilanit registered to MessageBus
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.TimeService initialize
+INFO: Timer is waiting for services..
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.ShoeFactoryService initialize
 INFO: factory 1 finished initialization ShoeFactoryService
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Simha finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Bracha finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.TimeService initialize
-INFO: All services done initializing --> Timer starts!
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Group-Buyers2 finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.ShoeFactoryService initialize
-INFO: factory 2 finished initialization ShoeFactoryService
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Shimshon finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
-INFO: Nurith finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Reuven finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
 INFO: Shraga finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService initialize
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Bracha finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
 INFO: Bruria finished initialization
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.TimeService$1 run
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Group-Buyers2 finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Group-Buyers1 finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Shimshon finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Yosef finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Ilanit finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.TimeService initialize
+INFO: All services done initializing --> Timer starts!
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Nurith finished initialization
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.ShoeFactoryService initialize
+INFO: factory 2 finished initialization ShoeFactoryService
+Jan 02, 2016 12:51:43 PM bgu.spl.app.MicroServices.WebsiteClientService initialize
+INFO: Simha finished initialization
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.TimeService$1 run
 INFO: Time is == 1
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.ManagementService lambda$0
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.ManagementService lambda$0
 INFO: manager: Sending NewDiscountBroadcast on 1 uncomfortable-high-heels
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
 INFO: Ilanit sending PurchaseOrderRequest
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Nurith received NewDiscountBroadcast
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Nurith sending PurchaseOrderRequest
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I'm happy to tell you that the shoe is on sale !!!  😄
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:31 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: uncomfortable-high-heels (1) Buyer: Ilanit
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: unfortunatly the shoe is not on discount 😡
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.MicroService terminate
-INFO: Nurith is terminating..
-Jan 02, 2016 11:37:31 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Nurith unregistered from MessageBus
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 2
-Jan 02, 2016 11:37:31 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 3
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 4
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 5
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 6
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.ManagementService lambda$0
-INFO: manager: Sending NewDiscountBroadcast on 1 space-flip-flops
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Shraga received NewDiscountBroadcast
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Shraga sending PurchaseOrderRequest
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.SellingService lambda$0
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.SellingService lambda$0
 INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: unfortunatly the shoe is not on discount 😡
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 7
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.ManagementService lambda$0
-INFO: manager: Sending NewDiscountBroadcast on 1 blue-sneakers
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Bracha received NewDiscountBroadcast
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Bracha sending PurchaseOrderRequest
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I'm happy to tell you that the shoe is on sale !!!  😄
-Jan 02, 2016 11:37:32 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Bracha
-Jan 02, 2016 11:37:32 AM bgu.spl.mics.MicroService terminate
-INFO: Bracha is terminating..
-Jan 02, 2016 11:37:32 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Bracha unregistered from MessageBus
-Jan 02, 2016 11:37:32 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 8
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 9
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Shimshon sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: regular price 🙂
-Jan 02, 2016 11:37:33 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Shimshon
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 10
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 11
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 12
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Shraga sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers1 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: regular price 🙂
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: regular price 🙂
-Jan 02, 2016 11:37:33 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: regular price 🙂
-Jan 02, 2016 11:37:33 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: regular price 🙂
-Jan 02, 2016 11:37:33 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: green-flip-flops (1) Buyer: Shraga
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Group-Buyers2 sending PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 2: Received ManufacturingOrderRequest for 3 work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 2: Received ManufacturingOrderRequest for 3 work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 2: Received ManufacturingOrderRequest for 3 work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
-Jan 02, 2016 11:37:33 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 13
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 14
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 15
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 16
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 16
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 16
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:34 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 17
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.ManagementService lambda$0
-INFO: manager: Sending NewDiscountBroadcast on 3 blue-sneakers
-Jan 02, 2016 11:37:34 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 18
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 19
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 20
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 20
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 20
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Shimshon sending PurchaseOrderRequest
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: I'm happy to tell you that the shoe is on sale !!!  😄
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Shimshon
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:35 AM bgu.spl.mics.MicroService terminate
-INFO: Shimshon is terminating..
-Jan 02, 2016 11:37:35 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Shimshon unregistered from MessageBus
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
-Jan 02, 2016 11:37:35 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:35 AM bgu.spl.mics.MicroService terminate
-INFO: Group-Buyers1 is terminating..
-Jan 02, 2016 11:37:35 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Group-Buyers1 unregistered from MessageBus
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 21
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 22
-Jan 02, 2016 11:37:35 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 23
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 24
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 24
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 24
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 25
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 26
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 27
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 28
-Jan 02, 2016 11:37:36 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 28
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
-Jan 02, 2016 11:37:36 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
-Jan 02, 2016 11:37:36 AM bgu.spl.mics.MicroService terminate
-INFO: Group-Buyers2 is terminating..
-Jan 02, 2016 11:37:36 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Group-Buyers2 unregistered from MessageBus
-Jan 02, 2016 11:37:37 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 29
-Jan 02, 2016 11:37:37 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 30
-Jan 02, 2016 11:37:37 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 31
-Jan 02, 2016 11:37:37 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 32
-Jan 02, 2016 11:37:37 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 33
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 34
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 35
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Yosef sending PurchaseOrderRequest
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for space-flip-flops
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 2: Received ManufacturingOrderRequest for 1 space-flip-flops
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 36
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 37
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 37
-Jan 02, 2016 11:37:38 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Store
-Jan 02, 2016 11:37:38 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Yosef
-Jan 02, 2016 11:37:38 AM bgu.spl.mics.MicroService terminate
-INFO: Yosef is terminating..
-Jan 02, 2016 11:37:38 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Yosef unregistered from MessageBus
-Jan 02, 2016 11:37:38 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 38
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 39
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 40
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Ilanit sending PurchaseOrderRequest
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 2: regular price 🙂
-Jan 02, 2016 11:37:39 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: uncomfortable-high-heels (1) Buyer: Ilanit
-Jan 02, 2016 11:37:39 AM bgu.spl.mics.MicroService terminate
-INFO: Ilanit is terminating..
-Jan 02, 2016 11:37:39 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Ilanit unregistered from MessageBus
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 41
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 42
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.ManagementService lambda$0
-INFO: manager: Sending NewDiscountBroadcast on 1 space-flip-flops
-Jan 02, 2016 11:37:39 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 43
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 44
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 45
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Reuven sending PurchaseOrderRequest
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.ManagementService lambda$2
-INFO: manager: RestockRequest received for space-flip-flops
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
-INFO: factory 1: Received ManufacturingOrderRequest for 1 space-flip-flops
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 46
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 47
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
-INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 47
-Jan 02, 2016 11:37:40 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Store
-Jan 02, 2016 11:37:40 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Reuven
-Jan 02, 2016 11:37:40 AM bgu.spl.mics.MicroService terminate
-INFO: Reuven is terminating..
-Jan 02, 2016 11:37:40 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Reuven unregistered from MessageBus
-Jan 02, 2016 11:37:40 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 48
-Jan 02, 2016 11:37:41 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 49
-Jan 02, 2016 11:37:41 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 50
-Jan 02, 2016 11:37:41 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 51
-Jan 02, 2016 11:37:41 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 52
-Jan 02, 2016 11:37:41 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 53
-Jan 02, 2016 11:37:42 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 54
-Jan 02, 2016 11:37:42 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 55
-Jan 02, 2016 11:37:42 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 56
-Jan 02, 2016 11:37:42 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 57
-Jan 02, 2016 11:37:42 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 58
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 59
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.ManagementService lambda$0
-INFO: manager: Sending NewDiscountBroadcast on 1 ugly-sandals
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.ManagementService lambda$0
-INFO: manager: Sending NewDiscountBroadcast on 1 ugly-sandals
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Shraga received NewDiscountBroadcast
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Shraga sending PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Bruria received NewDiscountBroadcast
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
-INFO: Bruria sending PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService Buy
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.SellingService Buy
 INFO: seller 3: I'm happy to tell you that the shoe is on sale !!!  😄
-Jan 02, 2016 11:37:43 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: ugly-sandals (1) Buyer: Shraga
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService lambda$0
+Jan 02, 2016 12:51:44 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: uncomfortable-high-heels (1) Buyer: Ilanit
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Nurith received NewDiscountBroadcast
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Nurith sending PurchaseOrderRequest
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: unfortunatly the shoe is not on discount 😡
+Jan 02, 2016 12:51:44 PM bgu.spl.mics.MicroService terminate
+INFO: Nurith is terminating..
+Jan 02, 2016 12:51:44 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Nurith unregistered from MessageBus
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 2
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 3
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 4
+Jan 02, 2016 12:51:44 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 5
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 6
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.ManagementService lambda$0
+INFO: manager: Sending NewDiscountBroadcast on 1 space-flip-flops
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Shraga received NewDiscountBroadcast
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Shraga sending PurchaseOrderRequest
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.SellingService lambda$0
 INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService Buy
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.SellingService Buy
 INFO: seller 2: unfortunatly the shoe is not on discount 😡
-Jan 02, 2016 11:37:43 AM bgu.spl.mics.MicroService terminate
-INFO: Bruria is terminating..
-Jan 02, 2016 11:37:43 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Bruria unregistered from MessageBus
-Jan 02, 2016 11:37:43 AM bgu.spl.mics.MicroService terminate
-INFO: Shraga is terminating..
-Jan 02, 2016 11:37:43 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Shraga unregistered from MessageBus
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Time is == 60
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Simha sending PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.TimeService$1 run
-INFO: Timer is waiting a safety time before terminating itself and other services..
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Simha sending PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService lambda$0
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 7
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.ManagementService lambda$0
+INFO: manager: Sending NewDiscountBroadcast on 1 blue-sneakers
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Bracha received NewDiscountBroadcast
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Bracha sending PurchaseOrderRequest
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.SellingService lambda$0
 INFO: seller 3 received PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 1: regular price 🙂
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Simha sending PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService Buy
-INFO: seller 3: regular price 🙂
-Jan 02, 2016 11:37:43 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
-INFO: Simha sending PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService lambda$0
-INFO: seller 2 received PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService lambda$0
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: I'm happy to tell you that the shoe is on sale !!!  😄
+Jan 02, 2016 12:51:45 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Bracha
+Jan 02, 2016 12:51:45 PM bgu.spl.mics.MicroService terminate
+INFO: Bracha is terminating..
+Jan 02, 2016 12:51:45 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Bracha unregistered from MessageBus
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 8
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 9
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Shimshon sending PurchaseOrderRequest
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.SellingService lambda$0
 INFO: seller 1 received PurchaseOrderRequest
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService Buy
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: regular price 🙂
+Jan 02, 2016 12:51:45 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Shimshon
+Jan 02, 2016 12:51:45 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 10
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 11
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 12
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Shraga sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: regular price 🙂
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: regular price 🙂
+Jan 02, 2016 12:51:46 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
 INFO: seller 2: regular price 🙂
-Jan 02, 2016 11:37:43 AM bgu.spl.app.passiveObjects.Store file
-INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.SellingService Buy
+Jan 02, 2016 12:51:46 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: green-flip-flops (1) Buyer: Shraga
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: regular price 🙂
+Jan 02, 2016 12:51:46 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers2 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Group-Buyers1 sending PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
 INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.ManagementService lambda$2
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 2: Received ManufacturingOrderRequest for 3 work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 2: Received ManufacturingOrderRequest for 3 work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 2: Received ManufacturingOrderRequest for 3 work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 1: Received ManufacturingOrderRequest for 3 work-shoes
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 13
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 14
+Jan 02, 2016 12:51:46 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 15
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 16
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 16
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 16
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 17
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.ManagementService lambda$0
+INFO: manager: Sending NewDiscountBroadcast on 3 blue-sneakers
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 18
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 19
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 20
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Shimshon sending PurchaseOrderRequest
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 20
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: I'm happy to tell you that the shoe is on sale !!!  😄
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: blue-sneakers (1) Buyer: Shimshon
+Jan 02, 2016 12:51:47 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 20
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
+Jan 02, 2016 12:51:47 PM bgu.spl.mics.MicroService terminate
+INFO: Shimshon is terminating..
+Jan 02, 2016 12:51:47 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Shimshon unregistered from MessageBus
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:47 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:48 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 21
+Jan 02, 2016 12:51:48 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 22
+Jan 02, 2016 12:51:48 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 23
+Jan 02, 2016 12:51:48 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 24
+Jan 02, 2016 12:51:48 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 24
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
+Jan 02, 2016 12:51:48 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 24
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers2
+Jan 02, 2016 12:51:48 PM bgu.spl.mics.MicroService terminate
+INFO: Group-Buyers2 is terminating..
+Jan 02, 2016 12:51:48 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Group-Buyers2 unregistered from MessageBus
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:48 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:48 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 25
+Jan 02, 2016 12:51:49 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 26
+Jan 02, 2016 12:51:49 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 27
+Jan 02, 2016 12:51:49 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 28
+Jan 02, 2016 12:51:49 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 28
+Jan 02, 2016 12:51:49 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (3) Buyer: Store
+Jan 02, 2016 12:51:49 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: work-shoes (1) Buyer: Group-Buyers1
+Jan 02, 2016 12:51:49 PM bgu.spl.mics.MicroService terminate
+INFO: Group-Buyers1 is terminating..
+Jan 02, 2016 12:51:49 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Group-Buyers1 unregistered from MessageBus
+Jan 02, 2016 12:51:49 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 29
+Jan 02, 2016 12:51:49 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 30
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 31
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 32
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 33
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 34
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 35
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Yosef sending PurchaseOrderRequest
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for space-flip-flops
+Jan 02, 2016 12:51:50 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 2: Received ManufacturingOrderRequest for 1 space-flip-flops
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 36
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 37
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 2: Finished ManufacturingOrderRequest in currentTick 37
+Jan 02, 2016 12:51:51 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Store
+Jan 02, 2016 12:51:51 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Yosef
+Jan 02, 2016 12:51:51 PM bgu.spl.mics.MicroService terminate
+INFO: Yosef is terminating..
+Jan 02, 2016 12:51:51 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Yosef unregistered from MessageBus
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 38
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 39
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Ilanit sending PurchaseOrderRequest
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 40
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:51 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: regular price 🙂
+Jan 02, 2016 12:51:51 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: uncomfortable-high-heels (1) Buyer: Ilanit
+Jan 02, 2016 12:51:51 PM bgu.spl.mics.MicroService terminate
+INFO: Ilanit is terminating..
+Jan 02, 2016 12:51:51 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Ilanit unregistered from MessageBus
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 41
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 42
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.ManagementService lambda$0
+INFO: manager: Sending NewDiscountBroadcast on 1 space-flip-flops
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 43
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 44
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 45
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Reuven sending PurchaseOrderRequest
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.ManagementService lambda$2
+INFO: manager: RestockRequest received for space-flip-flops
+Jan 02, 2016 12:51:52 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+INFO: factory 1: Received ManufacturingOrderRequest for 1 space-flip-flops
+Jan 02, 2016 12:51:53 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 46
+Jan 02, 2016 12:51:53 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$0
+INFO: factory 1: Finished ManufacturingOrderRequest in currentTick 47
+Jan 02, 2016 12:51:53 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 47
+Jan 02, 2016 12:51:53 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Store
+Jan 02, 2016 12:51:53 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: space-flip-flops (1) Buyer: Reuven
+Jan 02, 2016 12:51:53 PM bgu.spl.mics.MicroService terminate
+INFO: Reuven is terminating..
+Jan 02, 2016 12:51:53 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Reuven unregistered from MessageBus
+Jan 02, 2016 12:51:53 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 48
+Jan 02, 2016 12:51:53 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 49
+Jan 02, 2016 12:51:53 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 50
+Jan 02, 2016 12:51:54 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 51
+Jan 02, 2016 12:51:54 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 52
+Jan 02, 2016 12:51:54 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 53
+Jan 02, 2016 12:51:54 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 54
+Jan 02, 2016 12:51:54 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 55
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 56
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 57
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 58
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 59
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.ManagementService lambda$0
+INFO: manager: Sending NewDiscountBroadcast on 1 ugly-sandals
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.ManagementService lambda$0
+INFO: manager: Sending NewDiscountBroadcast on 1 ugly-sandals
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Shraga received NewDiscountBroadcast
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Shraga sending PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Bruria received NewDiscountBroadcast
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$1
+INFO: Bruria sending PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I'm happy to tell you that the shoe is on sale !!!  😄
+Jan 02, 2016 12:51:55 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: ugly-sandals (1) Buyer: Shraga
+Jan 02, 2016 12:51:55 PM bgu.spl.mics.MicroService terminate
+INFO: Shraga is terminating..
+Jan 02, 2016 12:51:55 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Shraga unregistered from MessageBus
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: unfortunatly the shoe is not on discount 😡
+Jan 02, 2016 12:51:55 PM bgu.spl.mics.MicroService terminate
+INFO: Bruria is terminating..
+Jan 02, 2016 12:51:55 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Bruria unregistered from MessageBus
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Time is == 60
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Simha sending PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Simha sending PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Simha sending PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$0
+INFO: Simha sending PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.TimeService$1 run
+INFO: Timer is waiting a safety time before terminating itself and other services..
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 3 received PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 3: regular price 🙂
+Jan 02, 2016 12:51:55 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: regular price 🙂
+Jan 02, 2016 12:51:55 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 1 received PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 1: regular price 🙂
+Jan 02, 2016 12:51:55 PM bgu.spl.app.passiveObjects.Store file
+INFO: Receipt created for ShoeType: red-boots (1) Buyer: Simha
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService lambda$0
+INFO: seller 2 received PurchaseOrderRequest
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.SellingService Buy
+INFO: seller 2: I don't have this shoe in stock I'm ordering it for you. please wait in patience.... 😭
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.ManagementService lambda$2
 INFO: manager: RestockRequest received for red-boots
-Jan 02, 2016 11:37:43 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
+Jan 02, 2016 12:51:55 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$2
 INFO: factory 2: Received ManufacturingOrderRequest for 1 red-boots
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
-INFO: seller 2 is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.WebsiteClientService lambda$2
-INFO: Simha: Received TerminationBroadcast. currentTick is 60. Terminating...
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: seller 2 unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$1
-INFO: factory 2: Received TerminationBroadcast. currentTick is 60. Terminating...
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeFactoryService lambda$1
-INFO: factory 1: Received TerminationBroadcast. currentTick is 60. Terminating...
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
-INFO: seller 3 is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
-INFO: factory 2 is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ManagementService lambda$1
-INFO: manager: Received TerminationBroadcast. currentTick is 60. Terminating...
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
-INFO: manager is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
-INFO: factory 1 is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
 INFO: seller 1 is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: factory 2 unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
 INFO: Timer is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
-INFO: Timer unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
 INFO: seller 1 unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.MicroService terminate
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.WebsiteClientService lambda$2
+INFO: Simha: Received TerminationBroadcast. currentTick is 60. Terminating...
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
 INFO: Simha is terminating..
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
 INFO: Simha unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
+INFO: seller 3 is terminating..
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
 INFO: seller 3 unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$1
+INFO: factory 1: Received TerminationBroadcast. currentTick is 60. Terminating...
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
+INFO: factory 1 is terminating..
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
 INFO: factory 1 unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.mics.impl.MessageBusImpl unregister
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ManagementService lambda$1
+INFO: manager: Received TerminationBroadcast. currentTick is 60. Terminating...
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
+INFO: manager is terminating..
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
 INFO: manager unregistered from MessageBus
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeFactoryService lambda$1
+INFO: factory 2: Received TerminationBroadcast. currentTick is 60. Terminating...
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
+INFO: factory 2 is terminating..
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: factory 2 unregistered from MessageBus
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.MicroService terminate
+INFO: seller 2 is terminating..
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: seller 2 unregistered from MessageBus
+Jan 02, 2016 12:51:56 PM bgu.spl.mics.impl.MessageBusImpl unregister
+INFO: Timer unregistered from MessageBus
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Program terminated.
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Purachsed sent: 38
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Purachsed completed: 37
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Purachsed failed: 0
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Restock sent: 22
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Restock completed: 21
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Restock failed: 0
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Manufacture sent: 10
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
 INFO: Manufacture completed: 9
-Jan 02, 2016 11:37:44 AM bgu.spl.app.MicroServices.ShoeStoreRunner main
-INFO: Manufacture failed: 0
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
+INFO: Shoes removed === 13
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
+INFO: Shoes notInStock === 22
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
+INFO: Shoes notOnDiscount === 3
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
+INFO: Shoes Discounted === 4
+Jan 02, 2016 12:51:56 PM bgu.spl.app.MicroServices.ShoeStoreRunner main
+INFO: Shoes Regular === 9

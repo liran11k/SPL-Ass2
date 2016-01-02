@@ -11,6 +11,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 import bgu.spl.app.passiveObjects.NewDiscountBroadcast;
 import bgu.spl.app.passiveObjects.PurchaseOrderRequest;
@@ -31,9 +32,9 @@ public class WebsiteClientService extends MicroService{
 	private int _tick;
 	private CountDownLatch _startLatch;
 	private CountDownLatch _finishLatch;
-	public static int _countSent;
-	public static int _countCompleted;
-	public static int _countFailed;
+	public static AtomicInteger _countSent;
+	public static AtomicInteger _countCompleted;
+	public static AtomicInteger _countFailed;
 	
 	public WebsiteClientService(String name, List<PurchaseSchedule> purchaseSchedule, Set<String> wishList, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
@@ -46,9 +47,9 @@ public class WebsiteClientService extends MicroService{
 		_tick=0;
 		_startLatch = startLatch;
 		_finishLatch = finishLatch;
-		_countSent=0;
-		_countCompleted=0;
-		_countFailed=0;
+		_countSent=new AtomicInteger(0);
+		_countCompleted=new AtomicInteger(0);
+		_countFailed=new AtomicInteger(0);
 	}
 	
 	private void copyAndSort(List<PurchaseSchedule> toCopy) {
@@ -141,13 +142,13 @@ public class WebsiteClientService extends MicroService{
 		return _myPurchaseSchedule;
 	}
 	
-	private synchronized void Sent(){
-		_countSent++;
+	private void Sent(){
+		_countSent.incrementAndGet();
 	}
-	private synchronized void Completed(){
-		_countCompleted++;
+	private void Completed(){
+		_countCompleted.incrementAndGet();
 	}
-	private synchronized void Failed(){
-		_countFailed++;
+	private void Failed(){
+		_countFailed.incrementAndGet();
 	}
 }
