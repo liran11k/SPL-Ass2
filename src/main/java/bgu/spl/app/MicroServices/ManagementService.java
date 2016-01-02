@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import bgu.spl.app.passiveObjects.DiscountSchedule;
 import bgu.spl.app.passiveObjects.DiscountsComparator;
@@ -36,9 +37,9 @@ public class ManagementService extends MicroService {
 	private Map <String, LinkedList<RestockRequest>> _myOrders;
 	private CountDownLatch _startLatch;
 	private CountDownLatch _finishLatch;
-	public static int _countSent;
-	public static int _countCompleted;
-	public static int _countFailed;
+	public static AtomicInteger _countSent;
+	public static AtomicInteger _countCompleted;
+	public static AtomicInteger _countFailed;
 	
 	public ManagementService(String name, List<DiscountSchedule> discounts, CountDownLatch startLatch, CountDownLatch finishLatch) {
 		super(name);
@@ -49,9 +50,9 @@ public class ManagementService extends MicroService {
 		_tick=0;
 		_startLatch = startLatch;
 		_finishLatch = finishLatch;
-		_countSent=0;
-		_countCompleted=0;
-		_countFailed=0;
+		_countSent=new AtomicInteger(0);
+		_countCompleted=new AtomicInteger(0);
+		_countFailed=new AtomicInteger(0);
 	}
 	
 	private void copyAndSort(List<DiscountSchedule> toCopy){
@@ -75,20 +76,10 @@ public class ManagementService extends MicroService {
 			while(!_myDiscounts.isEmpty() && _myDiscounts.getFirst().getTick()==_tick){
 				NewDiscountBroadcast discount = new NewDiscountBroadcast(_myDiscounts.getFirst().getType(), _myDiscounts.getFirst().getDiscountedAmount());
 				int newDiscountAmount = discount.getDiscountedAmount();
-				synchronized (Store.getInstance()) {
-					ShoeStorageInfo shoe = Store.getInstance().getShoe(discount.getShoeType());
-					if(shoe != null){
-						int amountOnStorage = shoe.getAmountOnStorage();
-						if(amountOnStorage < newDiscountAmount){
-							newDiscountAmount=amountOnStorage;
-						}
-						Store.getInstance().addDiscount(shoe.getType(), newDiscountAmount);
-						MessageBusImpl.LOGGER.info(getName() + ": Sending NewDiscountBroadcast on " + newDiscountAmount + " "  + shoe.getType());
-					}
-					
-					sendBroadcast(discount);
-				}
-				_myDiscounts.removeFirst();
+				Store.getInstance().addDiscount(discount.getShoeType(), newDiscountAmount);
+				MessageBusImpl.LOGGER.info(getName() + ": Sending NewDiscountBroadcast on " + newDiscountAmount + " "  + discount.getShoeType());
+				sendBroadcast(discount);
+				_myDiscounts.removeFirst();				
 			}
 		});
 		
@@ -156,13 +147,13 @@ public class ManagementService extends MicroService {
 	public LinkedList getDiscounts(){
 		return _myDiscounts;
 	}
-	private synchronized void Sent(){
-		_countSent++;
+	private void Sent(){
+		_countSent.incrementAndGet();
 	}
-	private synchronized void Completed(){
-		_countCompleted++;
+	private void Completed(){
+		_countCompleted.incrementAndGet();;
 	}
-	private synchronized void Failed(){
-		_countFailed++;
+	private void Failed(){
+		_countFailed.incrementAndGet();;
 	}
 }

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.swing.text.html.HTMLDocument.Iterator;
@@ -24,7 +25,7 @@ public class Store{
 	
 	private Store(){
 		_myReceipts = new LinkedBlockingQueue<Receipt>();
-		_myStorage = new HashMap<String, ShoeStorageInfo>();
+		_myStorage = new ConcurrentHashMap<String, ShoeStorageInfo>();
 	}
 	
 	public static Store getInstance(){
@@ -48,12 +49,17 @@ public class Store{
 	 * @return
 	 */
 	public BuyResult take(String shoeType, boolean onlyDiscount){
-		ShoeStorageInfo shoe = _myStorage.get(shoeType);
-		BuyResult result = BuyResult.getStatus(shoe,onlyDiscount);
+		BuyResult result = BuyResult.getStatus(_myStorage.get(shoeType),onlyDiscount);
+		if(result == BuyResult.DISCOUNTED_PRICE){
+			remove(shoeType);
+		}
+		else if(result == BuyResult.REGULAR_PRICE){
+			remove(shoeType);
+		}
 		return result;
 	}
 	
-	public void add(String shoeType, int amount){
+	public synchronized void add(String shoeType, int amount){
 		if(_myStorage.containsKey(shoeType)){
 			ShoeStorageInfo tmp = _myStorage.get(shoeType);
 			tmp.setAmount(tmp.getAmountOnStorage()+amount);
@@ -64,20 +70,22 @@ public class Store{
 		}
 	}
 	
-	public void remove(String shoeType){
+	public synchronized void remove(String shoeType){
 		ShoeStorageInfo tmp = _myStorage.get(shoeType);
 		tmp.setAmount(tmp.getAmountOnStorage()-1);
 		if(tmp.getDiscountedAmount()>0)
 			tmp.setDiscountAmount(tmp.getDiscountedAmount()-1);			
 	}
 	
-	public void addDiscount(String shoeType, int amount){
-		if(_myStorage.containsKey(shoeType)){
-			ShoeStorageInfo tmp = _myStorage.get(shoeType);
-			if(tmp.getDiscountedAmount() == 0)
-				tmp.setDiscountAmount(amount);
+	public synchronized void addDiscount(String shoeType, int amount){
+		if(_myStorage.containsKey(shoeType) &&  _myStorage.get(shoeType).getAmountOnStorage() > 0){
+			ShoeStorageInfo shoe = _myStorage.get(shoeType);
+			if(shoe.getAmountOnStorage() < amount)
+				amount=shoe.getAmountOnStorage();
+			if(shoe.getDiscountedAmount() == 0)
+				shoe.setDiscountAmount(amount);
 			else
-				tmp.setDiscountAmount(tmp.getDiscountedAmount()+amount);
+				shoe.setDiscountAmount(shoe.getDiscountedAmount()+amount);
 		}
 	}
 	
