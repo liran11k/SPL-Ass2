@@ -1,5 +1,6 @@
 package bgu.spl.app.passiveObjects;
 
+import java.lang.reflect.Array;
 import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +70,6 @@ public class Store{
 	}
 	
 	public void remove(String shoeType){
-		//TODO: remove counter
 		counter++;
 		ShoeStorageInfo tmp = _myStorage.get(shoeType);
 		tmp.setAmount(tmp.getAmountOnStorage()-1);
@@ -90,7 +90,12 @@ public class Store{
 	}
 	
 	public void file(Receipt receipt){
-		_myReceipts.add(receipt);
+		try {
+			_myReceipts.put(receipt);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		MessageBusImpl.LOGGER.info("Receipt created for ShoeType: " + receipt.getShoeType() + " (" + receipt.getAmount() + ") " + "Buyer: " + receipt.getCustomer());
 	}
 	

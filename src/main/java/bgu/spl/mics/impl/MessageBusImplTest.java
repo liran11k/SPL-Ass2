@@ -3,18 +3,14 @@ package bgu.spl.mics.impl;
 import static org.junit.Assert.*;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ThreadLocalRandom;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import bgu.spl.app.MicroServices.ManagementService;
 import bgu.spl.app.MicroServices.ShoeFactoryService;
 import bgu.spl.app.passiveObjects.ManufacturingOrderRequest;
 import bgu.spl.app.passiveObjects.NewDiscountBroadcast;
 import bgu.spl.app.passiveObjects.Receipt;
-import bgu.spl.mics.Message;
 import bgu.spl.mics.MicroService;
 import bgu.spl.mics.RequestCompleted;
 
@@ -117,8 +113,8 @@ public class MessageBusImplTest {
 		MessageBusImpl.getInstance().subscribeBroadcast(NewDiscountBroadcast.class, m);
 		NewDiscountBroadcast discount = new NewDiscountBroadcast("ShoeA", 1);
 		MessageBusImpl.getInstance().sendBroadcast(discount);
-		assertNotNull(MessageBusImpl.getInstance().getQueues()[0].get(0));
-		assertTrue(MessageBusImpl.getInstance().getQueues()[0].get(0) == discount);
+		assertNotNull(MessageBusImpl.getInstance().getQueues()[0].peek());
+		assertTrue(MessageBusImpl.getInstance().getQueues()[0].poll() == discount);
 	}
 	
 	@Test
@@ -131,8 +127,14 @@ public class MessageBusImplTest {
 		ManufacturingOrderRequest request = new ManufacturingOrderRequest("ShoeA", 1, 1);
 		MessageBusImpl.getInstance().sendRequest(request, m1);
 		Receipt receipt = new Receipt("factory", "factory2", "ShoeA", false, 1, 1, 1);
+		try {
+			MessageBusImpl.getInstance().awaitMessage(m1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		MessageBusImpl.getInstance().complete(request, receipt);
-		assertTrue(((RequestCompleted)MessageBusImpl.getInstance().getQueues()[0].get(1)).getResult() == receipt);
+		assertTrue(((RequestCompleted)MessageBusImpl.getInstance().getQueues()[0].poll()).getResult() == receipt);
 	}
 	
 	@Test

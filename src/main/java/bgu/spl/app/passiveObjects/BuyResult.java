@@ -8,7 +8,6 @@ public enum BuyResult{
 	REGULAR_PRICE,
 	DISCOUNTED_PRICE;
 
-	//TODO: remove all counters
 	public static AtomicInteger notInStock = new AtomicInteger(0);
 	public static AtomicInteger regular = new AtomicInteger(0);
 	public static AtomicInteger notOnDiscount = new AtomicInteger(0);

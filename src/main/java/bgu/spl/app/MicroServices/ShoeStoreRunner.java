@@ -105,8 +105,7 @@ public class ShoeStoreRunner {
 		
 		Store.getInstance().print();
 		
-		MessageBusImpl.LOGGER.info("Program terminated.");
-		
+		MessageBusImpl.LOGGER.info(" -------- PROGRAM TERMINATED SUCCESSFULLY! -------- ");
 		MessageBusImpl.LOGGER.info("Purachsed sent: " + WebsiteClientService._countSent);
 		MessageBusImpl.LOGGER.info("Purachsed completed: " + WebsiteClientService._countCompleted);
 		MessageBusImpl.LOGGER.info("Purachsed failed: " + WebsiteClientService._countFailed);
@@ -115,7 +114,7 @@ public class ShoeStoreRunner {
 		MessageBusImpl.LOGGER.info("Restock failed: " + SellingService._countFailed);
 		MessageBusImpl.LOGGER.info("Manufacture sent: " + ManagementService._countSent);
 		MessageBusImpl.LOGGER.info("Manufacture completed: " + ManagementService._countCompleted);
-		MessageBusImpl.LOGGER.info("Shoes removed === " + Store.counter);
+		MessageBusImpl.LOGGER.info("Shoes removed by seller === " + Store.counter);
 		MessageBusImpl.LOGGER.info("Shoes notInStock === " + BuyResult.notInStock);
 		MessageBusImpl.LOGGER.info("Shoes notOnDiscount === " + BuyResult.notOnDiscount);
 		MessageBusImpl.LOGGER.info("Shoes Discounted === " + BuyResult.Discounted);

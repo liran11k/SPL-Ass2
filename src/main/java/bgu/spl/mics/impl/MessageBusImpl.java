@@ -23,11 +23,11 @@ import bgu.spl.mics.RequestCompleted;
 
 public class MessageBusImpl implements MessageBus{
 
-	private Map<MicroService,ArrayList> _micro_services; //MicroService & Queue
-	private Map<Class <? extends Request>,ArrayList> _request_subscribers_lists; //Request and it's subscribers
-	private Map<Class <? extends Broadcast>,ArrayList> _broadcast_subscribers_lists; //Broadcast and it's subscribers
-	private Map<MicroService, ArrayList> _micro_service_request_types; 
-	private Map<MicroService, ArrayList> _micro_service_broadcast_types;
+	private Map<MicroService,LinkedBlockingQueue> _micro_services; //MicroService & Queue
+	private Map<Class <? extends Request>,LinkedBlockingQueue> _request_subscribers_lists; //Request and it's subscribers
+	private Map<Class <? extends Broadcast>,LinkedBlockingQueue> _broadcast_subscribers_lists; //Broadcast and it's subscribers
+	private Map<MicroService, LinkedList> _micro_service_request_types; 
+	private Map<MicroService, LinkedList> _micro_service_broadcast_types;
 	
     //Auxiliary map to get request & requester more efficiently
     private Map<Request<?>, MicroService> _request_and_requester;
@@ -39,7 +39,7 @@ public class MessageBusImpl implements MessageBus{
      * 1. Private Holder to create the instance from inside the class (by calling the constructor)
      * 2. Private Constructor to initialize the fields.
      * 3. Static instance getter to create the instance from outside the class.
-     * @author Liran
+     * @author Liran & Yahel
      *
      */
     private static class MessageBusImplHolder{
@@ -64,11 +64,11 @@ public class MessageBusImpl implements MessageBus{
 		if(_request_subscribers_lists.containsKey(type))
 				_request_subscribers_lists.get(type).add(m);
         else{
-        	_request_subscribers_lists.put(type, new ArrayList<>());
+        	_request_subscribers_lists.put(type, new LinkedBlockingQueue<>());
         	_request_subscribers_lists.get(type).add(m);
         }
 		if(!_micro_service_request_types.get(m).contains(type))
-			_micro_service_request_types.get(m).add(type);
+			_micro_service_request_types.get(m).addLast(type);
     }
 
     /**
@@ -78,31 +78,44 @@ public class MessageBusImpl implements MessageBus{
     	if(_broadcast_subscribers_lists.containsKey(type))
 				_broadcast_subscribers_lists.get(type).add(m);
         else{
-        	_broadcast_subscribers_lists.put(type, new ArrayList<>());
+        	_broadcast_subscribers_lists.put(type, new LinkedBlockingQueue<>());
         	_broadcast_subscribers_lists.get(type).add(m);
         }
 		if(!_micro_service_broadcast_types.get(m).contains(type))
-			_micro_service_broadcast_types.get(m).add(type);
+			_micro_service_broadcast_types.get(m).addLast(type);
     }
 
     /**
      * Get the tuple of request and requester in order to notify the requester
      * that the request is completed by sending MessageComplete to it's queue.
      */
-    public synchronized <T> void complete(Request<T> r, T result) {
+    public <T> void complete(Request<T> r, T result) {
     	RequestCompleted<T> completed = new RequestCompleted<>(r, result);
-    	_micro_services.get(_request_and_requester.get(r)).add(completed);
+    	synchronized (_micro_services) {
+    		try {
+				_micro_services.get(_request_and_requester.get(r)).put(completed);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+    	
 		_request_and_requester.remove(r);
-		notifyAll();
     }
 
     @Override
-    public synchronized void sendBroadcast(Broadcast b) {
+    public void sendBroadcast(Broadcast b) {
     	if(_broadcast_subscribers_lists.containsKey(b.getClass())){
-    		Iterator<MicroService> iterator = _broadcast_subscribers_lists.get(b.getClass()).iterator();
-    		while(iterator.hasNext())
-				_micro_services.get(iterator.next()).add((Message)b);
-    		notifyAll();
+    		Object[] subscribers = _broadcast_subscribers_lists.get(b.getClass()).toArray();
+    		for(int i=0; subscribers != null && i<subscribers.length; i++)
+    			if(_micro_services.get(subscribers[i]) != null){
+					try {
+						_micro_services.get(subscribers[i]).put((Message)b);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+    			}
     	}
     }
 
@@ -110,19 +123,25 @@ public class MessageBusImpl implements MessageBus{
      * Adding tuple of request & requester in order to operate m's (the requester) methods.
      * Adding pointer to map in order to reach the tuple more efficiently
      */
-    public synchronized boolean sendRequest(Request<?> r, MicroService requester) {
+    public boolean sendRequest(Request<?> r, MicroService requester) {
         if(_request_subscribers_lists.containsKey(r.getClass())){
-        	ArrayList <MicroService> subscribers = _request_subscribers_lists.get(r.getClass());
+        	//LinkedBlockingQueue <MicroService> subscribers = _request_subscribers_lists.get(r.getClass());
         	MicroService tmpMicroService = null;
-        	if(!subscribers.isEmpty()){
-            	tmpMicroService = subscribers.remove(0);
-   				_micro_services.get(tmpMicroService).add((Message)r);
-    			subscribers.add(tmpMicroService);
-            	_request_and_requester.put(r, requester);
-            	notifyAll();
+        	//if(!subscribers.isEmpty()){
+            	try {
+					tmpMicroService = (MicroService) _request_subscribers_lists.get(r.getClass()).take();
+					_request_and_requester.put(r, requester);
+					_micro_services.get(tmpMicroService).put((Message)r);
+					_request_subscribers_lists.get(r.getClass()).put(tmpMicroService);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+   			
+            	
             	return true;
-        	}
-        	return false;
+        	//}
+        	//return false;
         }
         else
         	return false;
@@ -131,9 +150,9 @@ public class MessageBusImpl implements MessageBus{
     @Override
     public void register(MicroService m) {
     	LOGGER.info(m.getName() + " registered to MessageBus");
-    	_micro_services.put(m, new ArrayList<>());
-        _micro_service_request_types.put(m, new ArrayList<>());
-        _micro_service_broadcast_types.put(m, new ArrayList<>());
+    	_micro_services.put(m, new LinkedBlockingQueue<>());
+        _micro_service_request_types.put(m, new LinkedList<>());
+        _micro_service_broadcast_types.put(m, new LinkedList<>());
         
     }
 
@@ -144,15 +163,14 @@ public class MessageBusImpl implements MessageBus{
         LOGGER.info(m.getName() + " unregistered from MessageBus");
     }
 
-	//TODO: fix timer get stuck here cause has no messages
     @Override
-    public synchronized Message awaitMessage(MicroService m) throws InterruptedException {
+    public Message awaitMessage(MicroService m) throws InterruptedException {
     	Message message = null;
 
-    	while(_micro_services.get(m).isEmpty())
-    		wait();
-    	message = (Message) _micro_services.get(m).get(0);
-		_micro_services.get(m).remove(0);
+    	//while(_micro_services.get(m).isEmpty())
+    		//wait();
+    	message = (Message) _micro_services.get(m).take();
+		//_micro_services.get(m).remove(0);
     	return message;
     }
 
@@ -163,19 +181,15 @@ public class MessageBusImpl implements MessageBus{
      * @param toRemoveFrom Message list to remove the queue from
      */
     public void unsubscribe(MicroService m){
-    	ArrayList list = _micro_service_request_types.get(m);
+    	LinkedList list = _micro_service_request_types.get(m);
     	while(!list.isEmpty()){
-    		Class<? extends Request> type;
-			type = (Class<? extends Request>) list.get(0);
-			list.remove(0);
+    		Class<? extends Request> type = (Class<? extends Request>) list.removeFirst();
 			_request_subscribers_lists.get(type).remove(m);
     	}
     	_micro_service_request_types.remove(m);
     	list = _micro_service_broadcast_types.get(m);
     	while(!list.isEmpty()){
-    		Class<? extends Broadcast> type;
-			type = (Class<? extends Broadcast>) list.get(0);
-			list.remove(0);
+    		Class<? extends Broadcast> type = (Class<? extends Broadcast>) list.removeFirst();
 			_broadcast_subscribers_lists.get(type).remove(m);
     	}
     	_micro_service_broadcast_types.remove(m);
@@ -184,10 +198,10 @@ public class MessageBusImpl implements MessageBus{
     
     // -----Getters to test Class via JUnit
     
-    public ArrayList[] getQueues(){
-    	ArrayList[] queues = new ArrayList[_micro_services.size()];
+    public LinkedBlockingQueue[] getQueues(){
+    	LinkedBlockingQueue[] queues = new LinkedBlockingQueue[_micro_services.size()];
 		int i=0;
-		for(Map.Entry<MicroService, ArrayList> entry : _micro_services.entrySet()){
+		for(Map.Entry<MicroService, LinkedBlockingQueue> entry : _micro_services.entrySet()){
 			queues[i] = entry.getValue();
 			i++;
 		}
@@ -197,7 +211,7 @@ public class MessageBusImpl implements MessageBus{
     public MicroService[] getMicroServices(){
     	MicroService[] services = new MicroService[_micro_services.size()];
 		int i=0;
-		for(Map.Entry<MicroService, ArrayList> entry : _micro_services.entrySet()){
+		for(Map.Entry<MicroService, LinkedBlockingQueue> entry : _micro_services.entrySet()){
 			services[i] = entry.getKey();
 			i++;
 		}

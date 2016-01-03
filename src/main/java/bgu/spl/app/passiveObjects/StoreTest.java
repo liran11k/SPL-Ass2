@@ -2,8 +2,6 @@ package bgu.spl.app.passiveObjects;
 
 import static org.junit.Assert.*;
 
-import java.util.Collection;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
